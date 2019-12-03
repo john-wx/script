@@ -1,0 +1,13 @@
+hostname =ap*.intsig.net,vsco.co,mp.weixin.qq.com,
+扫描全能王 pro
+^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? url script-response-body CamScanner.js
+
+# 去微信公众号广告 (By Choler)
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad url script-response-body Wechat.js
+
+# vsco
+^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/ url script-response-body vsco.js
+
+
+# Termius 
+https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/ url script-response-body Terminus.js
