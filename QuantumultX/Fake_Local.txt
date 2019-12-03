@@ -1,5 +1,6 @@
 hostname =ap*.intsig.net,vsco.co,mp.weixin.qq.com,
-扫描全能王 pro
+
+CamScanner pro
 ^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? url script-response-body CamScanner.js
 
 # 去微信公众号广告 (By Choler)
