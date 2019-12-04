@@ -20,4 +20,4 @@ hostname =buy.itunes.apple.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,,license.
 https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/ url script-response-body Terminus.js
 
 #adguardpremium
-^ https：\ / \ / mobile-api \ .adguard \ .com \ / api \ / 1 \ .0 \ / ios_validate_receipt $ url 302 https://raw.githubusercontent.com/john-wx/scripting/master/Adguard.rsp
+^https:\/\/mobile-api\.adguard\.com\/api\/1\.0\/ios_validate_receipt$ url 302 https://raw.githubusercontent.com/john-wx/scripting/master/Adguard.rsp
