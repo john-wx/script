@@ -12,9 +12,6 @@ hostname =buy.itunes.apple.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,,license.
 # 去微信公众号广告 (By Choler)
 ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad url script-response-body john/Wechat.js
 
-#document
-^https:\/\/license\.pdfexpert\.com\/api\/.*\/documents\/subscription\/(refresh$|check$) url script-response-body john/documents.js
-
 # vsco
 ^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/ url script-response-body john/vsco.js
 
