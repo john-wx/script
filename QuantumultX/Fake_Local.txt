@@ -1,8 +1,5 @@
 hostname =buy.itunes.apple.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,,license.pdfexpert.com,newdrugs.dxy.cn,api.termius.com,mobile-api.adguard.com,receipt-validator.herewetest.com,ssl-api.itranslateapp.com
 
-#buy.itunes.apple.com
-^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt$ url script-response-body john/verify_receipt.js
-
 #CamScanner
 ^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? url script-response-body john/CamScanner.js
 
