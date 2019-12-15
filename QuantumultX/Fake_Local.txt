@@ -1,4 +1,4 @@
-hostname =ap*.intsig.net,vsco.co,mp.weixin.qq.com,,license.pdfexpert.com,newdrugs.dxy.cn,api.termius.com,mobile-api.adguard.com,receipt-validator.herewetest.com,ssl-api.itranslateapp.com
+hostname =ap*.intsig.net,vsco.co,mp.weixin.qq.com,,license.pdfexpert.com,newdrugs.dxy.cn,api.termius.com,mobile-api.adguard.com,receipt-validator.herewetest.com,ssl-api.itranslateapp.com,mjapp.*.com
 
 #CamScanner
 ^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? url script-response-body john/CamScanner.js
@@ -28,3 +28,13 @@ https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/ url script-response-body j
 
 #itranslate&lingo&voice&converse
 ^https:\/\/ssl-api\.itranslateapp\.com\/.*\/subscriptions\/.*\/ios$ url script-response-body john/itranslate.js
+
+#爱美剧
+
+#弹窗&广告
+^http(s):\/\/mjapp\.\w+\.com/index.php/app/ios/ads/index$ url reject-dict
+^http(s):\/\/mjapp\.\w+\.com/index.php/app/ios/ver/index_ios$ url reject
+^http(s):\/\/mjapp\.\w+\.com\/index\.php\/app\/ios\/pay\/ok$ url reject-dict
+
+#vip&ad
+^http(s):\/\/mjapp\.\w+\.com\/index\.php\/app\/ios\/(vod\/show|(user|vod|topic)\/index) url script-response-body john/aimeiju.js
