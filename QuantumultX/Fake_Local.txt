@@ -1,4 +1,7 @@
-hostname =ap*.intsig.net,vsco.co,mp.weixin.qq.com,,license.pdfexpert.com,newdrugs.dxy.cn,api.termius.com,mobile-api.adguard.com,receipt-validator.herewetest.com,ssl-api.itranslateapp.com,mjapp.*.com
+hostname =api.m.jd.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,,license.pdfexpert.com,newdrugs.dxy.cn,api.termius.com,mobile-api.adguard.com,receipt-validator.herewetest.com,ssl-api.itranslateapp.com,mjapp.*.com
+
+# JD Price
+^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig) url script-response-body JD.js
 
 #CamScanner
 ^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? url script-response-body john/CamScanner.js
