@@ -15,9 +15,14 @@ hostname =api.m.jd.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,,license.pdfexper
 # 去微信公众号广告 (By Choler)
 ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad url script-response-body john/Wechat.js
 
+# 滴答清单
+^https:\/\/(ticktick|dida365)\.com\/api\/v2\/user\/status url script-response-body john/DiDaQingDan.js
+
 # vsco
 ^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/ url script-response-body john/vsco.js
 
+#document
+^https:\/\/license\.pdfexpert\.com\/api\/.*\/documents\/subscription\/(refresh$|check$) url script-response-body john/documents.js
 
 # Termius 
 https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/ url script-response-body john/Terminus.js
