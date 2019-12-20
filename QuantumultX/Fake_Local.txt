@@ -1,7 +1,10 @@
-hostname =api.m.jd.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,,license.pdfexpert.com,newdrugs.dxy.cn,api.termius.com,mobile-api.adguard.com,receipt-validator.herewetest.com,ssl-api.itranslateapp.com,mjapp.*.com
+hostname =api.m.jd.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,,license.pdfexpert.com,newdrugs.dxy.cn,api.termius.com,mobile-api.adguard.com,receipt-validator.herewetest.com,ssl-api.itranslateapp.com,mjapp.*.com,spclient.wg.spotify.com,www.youtube.com, youtubei.googleapis.com, www.googleapis.com,vsco.co,mp.weixin.qq.com,app-api.smzdm.com,acs.m.taobao.com,dida365.com,ticktick.com,pan.baidu.com,api-cs.intsig.net,api.bilibili.com,mobile-api.adguard.com,education.github.com,*.bilibili.com,raw.githubusercontent.com, *.github.io,mjappaz.yefu365.com,mjapp.whetyy.com,license.pdfexpert.com,api.tophub.today,newdrugs.dxy.cn,api.revenuecat.com,ios.xiaoxiaoapps.com,api.textnow.me
 
 # JD Price
 ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig) url script-response-body JD.js
+
+#textnow去广告
+^https:\/\/api\.textnow\.me\/api2.0\/users\/.* url script-response-body textnow.js
 
 #CamScanner
 ^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? url script-response-body john/CamScanner.js
@@ -41,3 +44,6 @@ https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/ url script-response-body j
 
 #vip&ad
 ^http(s):\/\/mjapp\.\w+\.com\/index\.php\/app\/ios\/(vod\/show|(user|vod|topic)\/index) url script-response-body john/aimeiju.js
+
+#noto
+^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers) url script-response-body john/noto.lifetime.js
