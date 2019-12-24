@@ -7,7 +7,7 @@ hostname =api.m.jd.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,,license.pdfexper
 ^https:\/\/api\.textnow\.me\/api2.0\/users\/.* url script-response-body textnow.js
 
 #今日热榜
-;^https:\/\/api\.tophub\.today\/account\/sync url script-response-body john/jrrb.js
+^https:\/\/api\.tophub\.today\/account\/sync url script-response-body john/jrrb.js
 
 #CamScanner
 ^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? url script-response-body john/CamScanner.js
