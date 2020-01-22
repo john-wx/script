@@ -1,4 +1,4 @@
-hostname =api.m.jd.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,license.pdfexpert.com,api.termius.com,mobile-api.adguard.com,ssl-api.itranslateapp.com,spclient.wg.spotify.com,youtubei.googleapis.com, www.googleapis.com,app-api.smzdm.com,acs.m.taobao.com,api-cs.intsig.net,api.bilibili.com,mobile-api.adguard.com,*.bilibili.com,raw.githubusercontent.com, *.github.io,mjappaz.yefu365.com,mjapp.whetyy.com,license.pdfexpert.com,api.tophub.today,api.revenuecat.com,api.textnow.me, newdrugs.dxy.cn
+hostname =api.m.jd.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,license.pdfexpert.com,api.termius.com,mobile-api.adguard.com,ssl-api.itranslateapp.com,spclient.wg.spotify.com,youtubei.googleapis.com, www.googleapis.com,app-api.smzdm.com,acs.m.taobao.com,api-cs.intsig.net,api.bilibili.com,mobile-api.adguard.com,*.bilibili.com,raw.githubusercontent.com, *.github.io,mjappaz.yefu365.com,mjapp.whetyy.com,license.pdfexpert.com,api.tophub.today,api.revenuecat.com,api.textnow.me,newdrugs.dxy.cn
 
 # JD Price
 ;^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig) url script-response-body JD.js
