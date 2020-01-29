@@ -1,4 +1,4 @@
-hostname =api.m.jd.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,license.pdfexpert.com,api.termius.com,mobile-api.adguard.com,ssl-api.itranslateapp.com,spclient.wg.spotify.com,youtubei.googleapis.com, www.googleapis.com,app-api.smzdm.com,acs.m.taobao.com,trade-acs.m.taobao.com,api-cs.intsig.net,api.bilibili.com,*.bilibili.com,mjappaz.yefu365.com,mjapp.whetyy.com,api.tophub.today,api.textnow.me,newdrugs.dxy.cn，m.client.10010.com,www.52pojie.cn,mobwsa.ximalaya.com,*.amemv.com,*.snssdk.com
+hostname =api.m.jd.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,license.pdfexpert.com,api.termius.com,mobile-api.adguard.com,ssl-api.itranslateapp.com,spclient.wg.spotify.com,youtubei.googleapis.com, www.googleapis.com,app-api.smzdm.com,acs.m.taobao.com,trade-acs.m.taobao.com,api-cs.intsig.net,api.bilibili.com,*.bilibili.com,mjappaz.yefu365.com,mjapp.whetyy.com,api.tophub.today,api.textnow.me,newdrugs.dxy.cn，m.client.10010.com,www.52pojie.cn,mobwsa.ximalaya.com,*.amemv.com,*.snssdk.com,api.weibo.cn, mapi.weibo.com,
 
 #联通营业厅 轮播广告
 ^https?:\/\/m.client.10010.com\/uniAdmsInterface\/getHomePageAd url script-response-body china_unicom.js
@@ -20,6 +20,10 @@ hostname =api.m.jd.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,license.pdfexpert
 
 # 去微信公众号广告 (By Choler)
 ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad url script-response-body john/Wechat.js
+
+# 去微博应用内广告 (By yichahucha)
+^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|\!/photos/pic_recommend_status) url script-response-body john/wb_ad.js
+#^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua) url script-response-body john/wb_launch.js
 
 # vsco
 ^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/ url script-response-body john/vsco.js
