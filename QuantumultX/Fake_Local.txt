@@ -34,6 +34,9 @@ hostname =api.m.jd.com,ap*.intsig.net,vsco.co,mp.weixin.qq.com,license.pdfexpert
 ^https?:\/\/vip1\.kuwo\.cn\/(vip\/v2\/user\/vip|vip\/spi/mservice) url script-response-body john/Kuwo.js
 ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?uid\=\d+ url 302 http://musicpay.kuwo.cn/music.pay?uid=1
 
+# 抖音去广告去水印 (By Choler)
+^https://aweme-eagle(.*)\.snssdk\.com\/aweme/.+/(feed|aweme/post|follow/feed)/ url script-response-body john/Aweme.js
+
 #speak&translate
 ^https:\/\/receipt-validator\.herewetest\.com\/apple\/verifyTransaction$ url script-response-body john/speak&translate.js
 
