@@ -75,3 +75,7 @@ https:\/\/trade-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.detail\.getdetail url scr
 
 #菜谱大全解锁vip
 https?:\/\/api\.jiaonizuocai\.com url script-response-body cpdq.js
+
+# 解锁B站大会员-圈X规则
+https://api.bilibili.com/pgc/view/app/season url 302 https://bilibili.mlyx.workers.dev/
+https://api.bilibili.com/pgc/player/api/playurl url 302 https://bilibili.mlyx.workers.dev/
