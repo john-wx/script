@@ -79,3 +79,6 @@ https?:\/\/api\.jiaonizuocai\.com url script-response-body cpdq.js
 # 解锁B站大会员-圈X规则
 https://api.bilibili.com/pgc/view/app/season url 302 https://bilibili.mlyx.workers.dev/
 https://api.bilibili.com/pgc/player/api/playurl url 302 https://bilibili.mlyx.workers.dev/
+
+#第一弹
+^https:\/\/api\.diyidan\.net\/v0\.3\/(user\/personal_homepage|vip_user\/info|tv_series\/index\?appChanne) url script-response-body Diyidan.js
