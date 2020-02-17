@@ -1,2 +1,0 @@
-
-vmess=p02.wuyiauto.com:80, method=chacha20-ietf-poly1305, password=9f368438-b67d-38ad-8a0f-d99d86a14d59, obfs-host=p02.wuyiauto.com, obfs=ws, obfs-uri=/user, fast-open=false, udp-relay=false, tag=香港2
