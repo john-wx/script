@@ -1,7 +1,10 @@
-hostname=mobile-api.adguard.com,buy.itunes.apple.com,vsco.co
+hostname=mobile-api.adguard.com,buy.itunes.apple.com,vsco.co,newdrugs.dxy.cn
 
 #adguardpremium
 ^https:\/\/mobile-api\.adguard\.com\/api\/1\.0\/ios_validate_receipt$ url 302 https://raw.githubusercontent.com/john-wx/scripting/master/Adguard.rsp
 
 # vsco
 ^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/ url script-response-body https://raw.githubusercontent.com/john-wx/scripting/master/john/vsco.js
+
+# 用药助手解锁专业版 (By Primovist)
+^https?:\/\/(i|newdrugs)\.dxy\.cn\/(snsapi\/username\/|app\/user\/(pro\/stat\?|init\?timestamp=)) url script-response-body https://raw.githubusercontent.com/john-wx/scripting/master/john/yyzs.js
