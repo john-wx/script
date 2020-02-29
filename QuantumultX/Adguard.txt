@@ -1,4 +1,6 @@
-hostname=mobile-api.adguard.com,buy.itunes.apple.com,vsco.co,newdrugs.dxy.cn
+hostname=mobile-api.adguard.com,vsco.co,newdrugs.dxy.cn
+
+# ,buy.itunes.apple.com
 
 #adguardpremium
 ^https:\/\/mobile-api\.adguard\.com\/api\/1\.0\/ios_validate_receipt$ url 302 https://raw.githubusercontent.com/john-wx/scripting/master/Adguard.rsp
