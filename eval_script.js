@@ -26,8 +26,7 @@ const __conf = String.raw`
 
 [remote]
 //配置远程订阅
-https://raw.githubusercontent.com/yichahucha/surge/master/sub_script.conf
-https://raw.githubusercontent.com/yichahucha/surge/master/sub_script1.conf
+https://raw.githubusercontent.com/john-wx/scripting/master/QuantumultX/sub_script.conf
 
 
 
