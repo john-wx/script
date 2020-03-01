@@ -18,7 +18,7 @@
  */
 
 //远程配置
-const __remoteConf = "https://raw.githubusercontent.com/yichahucha/surge/master/sub_script.conf"
+const __remoteConf = "https://raw.githubusercontent.com/john-wx/scripting/master/QuantumultX/sub_script.conf"
 
 //本地配置
 const __conf = String.raw`
