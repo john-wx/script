@@ -29,8 +29,10 @@ https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js url https
 //微博
 https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js url ^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/photos/pic_recommend_status)
 https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js url ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
+//vsco
+https://raw.githubusercontent.com/john-wx/scripting/master/john/vsco.js url ^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/
 
-https://raw.githubusercontent.com/john-wx/scripting/master/john/vsco.js
+
 
 
 `
