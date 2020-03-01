@@ -1,12 +1,11 @@
-hostname=mobile-api.adguard.com,vsco.co,newdrugs.dxy.cn
+hostname=mobile-api.adguard.com,vsco.co,newdrugs.dxy.cn，*.musical.ly, *.tiktokv.com,*.tiktokcdn.com, api*.amemv.com, aweme*.snssdk.com,  api*.tiktokv.com
 
 # ,buy.itunes.apple.com
 
 #adguardpremium
 ^https:\/\/mobile-api\.adguard\.com\/api\/1\.0\/ios_validate_receipt$ url 302 https://raw.githubusercontent.com/john-wx/scripting/master/Adguard.rsp
 
-# vsco
-^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/ url script-response-body https://raw.githubusercontent.com/john-wx/scripting/master/john/vsco.js
-
-# 用药助手解锁专业版 (By Primovist)
-^https?:\/\/(i|newdrugs)\.dxy\.cn\/(snsapi\/username\/|app\/user\/(pro\/stat\?|init\?timestamp=)) url script-response-body https://raw.githubusercontent.com/john-wx/scripting/master/john/yyzs.js
+//抖音锁区
+(.*video_id=\w{32})(.*watermark=)(.*) url 302 $1
+(?<=(carrier|account|sys)_region=)CN url 307 JP
+(?<=version_code=)\d{1,}.\d{1}\.\d{1} url 307 14.0.0
