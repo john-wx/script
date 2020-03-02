@@ -1,7 +1,7 @@
 /**
  * 脚本管理工具（QuanX 举例）
  * 
- * 一.设置定时任务更新添加的远程脚本，第一次运行需要手动执行一下更新脚本（Qanx 普通调试模式容易更新失败，使用最新 TF 橙色按钮调试），例如设置每天凌晨更新脚本：
+ * 一.设置定时任务更新脚本，第一次运行需要手动执行一下更新脚本（Qanx 普通调试模式容易更新失败，使用最新 TF 橙色按钮调试），例如设置每天凌晨更新脚本：
  * [task_local]
  * 0 0 * * * eval_script.js
  * 
@@ -16,8 +16,8 @@
  * 
  * [本地配置]
  * 1.添加配置，格式为：远程脚本的链接 url 匹配脚本对应的正则1,匹配脚本对应的正则2
- * 2.修改原脚本路径为 eval_script.js 的脚本路径
- * 例如修改京东脚本：
+ * 2.修改配置文件原脚本路径为 eval_script.js 的脚本路径
+ * 例如修改配置文件 jd 脚本：
  * [rewrite_local]
  * #^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig) url script-response-body jd_price.js
  * ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig) url script-response-body eval_script.js
@@ -25,28 +25,28 @@
  * hostname = api.m.jd.com
  */
 
-
-//配置
+//conf
 const __conf = String.raw`
 
 
-
 [remote]
-//远程配置
 https://raw.githubusercontent.com/yichahucha/surge/master/sub_script.conf
+
+//custom remote...
 
 
 [local]
-//本地配置
-//京东
+//jd
 //https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js url ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig)
 
+//custom local...
 
 
 `
 
 const __tool = new ____Tool()
 const __isTask = __tool.isTask
+
 if (__isTask) {
     const downloadFile = (url) => {
         return new Promise((resolve) => {
@@ -81,7 +81,9 @@ if (__isTask) {
                     })
                     return all
                 })()
+                console.log("Start updating conf...")
                 Promise.all(confPromises).then(result => {
+                    console.log("Stop updating conf.")
                     let allRemoteConf = ""
                     let allRemoteMSg = ""
                     result.forEach(data => {
@@ -113,9 +115,9 @@ if (__isTask) {
                 })
                 return all
             })()
-            console.log("Start updating...")
+            console.log("Start updating script...")
             Promise.all(scriptPromises).then(result => {
-                console.log("Stop updating.")
+                console.log("Stop updating script.")
                 const notifyMsg = (() => {
                     let msg = conf.msg
                     result.forEach(data => {
@@ -151,6 +153,7 @@ if (!__isTask) {
         }
         return s
     })()
+    
     if (__script) {
         if (__script.content) {
             eval(__script.content)
