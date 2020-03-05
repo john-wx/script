@@ -21,7 +21,7 @@ https?:\/\/.*\.iqiyi\.com\/.*authcookie= url script-request-header iQIYI_GetCook
 # MITM = *.iqiyi.com
 
 [task_local]
-0 9 * * * iQIYI_DailyBonus_QX.js
+  0 9 * * * iQIYI_DailyBonus_QX.js
 
 */
 
