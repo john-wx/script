@@ -1,17 +1,18 @@
-const cookieName = 'HYCAN合创'
-const signurlKey = 'signurl_hycan'
-const signheaderKey = 'signheader_hycan'
-const hycan = init()
-
-if ($request && $request.method == 'POST') {
-  const signurlVal = $request.url
+const cookieName = '京东到家'
+const signurlKey = 'chen_signurl_jddj'
+const signheaderKey = 'chen_signheader_jddj'
+const chen = init()
+const requrl = $request.url
+if ($request && $request.method != 'OPTIONS') {
+  const signurlVal = requrl
   const signheaderVal = JSON.stringify($request.headers)
-  
-  if (signurlVal) hycan.setdata(signurlVal, signurlKey)
-  if (signheaderVal) hycan.setdata(signheaderVal, signheaderKey)
-  hycan.msg(cookieName, `获取Cookie: 成功`, ``)
+  const flag = requrl.includes('functionId=signinuserSigninNew')
+  if (signurlVal&&signheaderVal&&flag) {
+    chen.setdata(signurlVal, signurlKey)
+    chen.setdata(signheaderVal, signheaderKey)
+    chen.msg(cookieName, `获取Cookie: 成功`, ``)
+  }
 }
-
 function init() {
   isSurge = () => {
     return undefined === this.$httpClient ? false : true
@@ -50,18 +51,9 @@ function init() {
       $task.fetch(url).then((resp) => cb(null, {}, resp.body))
     }
   }
-  put = (url, cb) => {
-    if (isSurge()) {
-      $httpClient.put(url, cb)
-    }
-    if (isQuanX()) {
-      url.method = 'PUT'
-      $task.fetch(url).then((resp) => cb(null, {}, resp.body))
-    }
-  }
   done = (value = {}) => {
     $done(value)
   }
-  return { isSurge, isQuanX, msg, log, getdata, setdata, get, post, put, done }
+  return { isSurge, isQuanX, msg, log, getdata, setdata, get, post, done }
 }
-hycan.done()
+chen.done()
