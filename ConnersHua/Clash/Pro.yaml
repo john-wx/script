@@ -699,6 +699,7 @@ Rule:
 - DOMAIN-SUFFIX,pbs.org,GlobalMedia
 # > Pornhub
 - DOMAIN-SUFFIX,phncdn.com,GlobalMedia
+- DOMAIN-SUFFIX,phprcdn.com,GlobalMedia
 - DOMAIN-SUFFIX,pornhub.com,GlobalMedia
 - DOMAIN-SUFFIX,pornhubpremium.com,GlobalMedia
 # > 台湾好
