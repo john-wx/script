@@ -1,4 +1,4 @@
-# eval_script.js 使用示例（适用于 Surge 和 QX ）
+# eval_script.js 使用示例（适用 Surge 和 QX ）
 
 ```
 1.设置定时任务更新脚本，第一次需手动更新，脚本多的情况下有可能更新失败（Surge 和 QX 橙色按钮更新成功率最高），确保脚本更新成功
@@ -15,7 +15,7 @@ QX:
 0 0 * * * eval_script.js
 
 
-2.在 eval_script.js 中配置需要管理的脚本，可以配置远程和配置本地，提供两个配置示例
+2.在 eval_script.js 中配置需要管理的脚本，可以配置远程和配置本地，提供两个配置示例（也可以直接使用 surge 或 qx 脚本配置）
 
 远程格式为: #### 脚本类型(request/response) 匹配正则 eval 脚本连接
 本地格式为: 脚本类型(request/response) 匹配正则 eval 脚本连接
@@ -178,35 +178,8 @@ DingDing clock in
 0 9,18 * * 1-5 clock_in.js
 ```
 
-
 Script management tool
 ```
-简单使用示例
-
-1.设置定时任务更新脚本，第一次需手动更新（使用橙色按钮），确保脚本更新成功
-
 [task_local]
 0 0 * * * eval_script.js
-
-
-2.在 eval_script.js 中配置需要管理的脚本，可以配置远程和配置本地，提供一个复写订阅适配 eval_script 的远程示例
-
-远程格式为: ####脚本类型(request/response) 匹配正则 eval 脚本连接
-本地格式为: 脚本类型(request/response) 匹配正则 eval 脚本连接
-
-[eval_remote]
-https://raw.githubusercontent.com/yichahucha/surge/master/sub_script.conf
-
-[eval_local]
-// custom local...
-
-
-3.添加复写订阅，更新复写订阅
-
-[rewrite_remote]
-https://raw.githubusercontent.com/yichahucha/surge/master/sub_script.conf, tag=eval, enabled=true
-
-
-4.以上都配置好，示例脚本生效
-
 ```
