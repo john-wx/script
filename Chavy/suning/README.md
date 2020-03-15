@@ -1,51 +1,50 @@
-# 七猫小说
+# 苏宁易购
 
 > 代码已同时兼容 Surge & QuanX, 使用同一份签到脚本即可
-> 感谢[@danchaw](https://github.com/danchaw) PR
+
+> 2020.3.15 目前仅在 QuanX 上测试通过 (但不知 Cookie 能撑多久), Surge 应该是签不上的 (经反馈, Surge 作者会在下一个 TF 版本解决这个问题)
+
 ## 配置 (Surge)
 
 ```properties
 [MITM]
-xiaoshuo.qm989.com
+hostname = passport.suning.com, luckman.suning.com, sign.suning.com
 
 [Script]
-http-request ^https:\/\/xiaoshuo\.qm989\.com script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/qimao/qmnovel.js
-cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/qimao/qmnovel.js
+# 注意有3条获取 Cookie 脚本
+http-request ^https:\/\/passport.suning.com\/ids\/login$ script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/suning/suning.cookie.js, requires-body=true
+http-request ^https:\/\/luckman.suning.com\/luck-web\/sign\/api\/clock_sign.do script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/suning/suning.cookie.js
+http-request ^https:\/\/sign.suning.com\/sign-web\/m\/promotion\/sign\/doSign.do script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/suning/suning.cookie.js
+cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/suning/suning.js
 ```
 
 ## 配置 (QuanX)
 
 ```properties
 [MITM]
-xiaoshuo.qm989.com
+hostname = passport.suning.com, luckman.suning.com, sign.suning.com
 
 [rewrite_local]
-
-# [商店版]
-^https:\/\/xiaoshuo\.qm989\.com url script-request-header qmnovel.js
-
-# [TestFlight]
-^https:\/\/xiaoshuo\.qm989\.com url script-request-header https://raw.githubusercontent.com/chavyleung/scripts/master/qimao/qmnovel.js
+# 注意有3条获取 Cookie 脚本
+^https:\/\/passport.suning.com\/ids\/login$ url script-request-body suning.cookie.js
+^https:\/\/luckman.suning.com\/luck-web\/sign\/api\/clock_sign.do url script-request-header suning.cookie.js
+^https:\/\/sign.suning.com\/sign-web\/m\/promotion\/sign\/doSign.do url script-request-header suning.cookie.js
 
 [task_local]
-
-# [商店版]
-1 0 * * * qmnovel.js
-
-# [TestFlight]
-1 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/qimao/qmnovel.js
+1 0 * * * suning.js
 ```
 
 ## 说明
 
-1. 先把`xiaoshuo.qm989.com`加到`[MITM]`
+1. 先把`passport.suning.com, luckman.suning.com, sign.suning.com`加到`[MITM]`
 2. 再配置重写规则:
    - Surge: 把两条远程脚本放到`[Script]`
-   - QuanX: 把`qmnovel.js`传到`On My iPhone - Quantumult X - Scripts` (传到 iCloud 相同目录也可, 注意要打开 quanx 的 iCloud 开关)
-3. 暂时关闭QX或Surge中的广告屏蔽, 否则无法获取小视频奖励cookie和url
-4. 打开 APP[七猫小说](https://apps.apple.com/cn/app/%E4%B8%83%E7%8C%AB%E5%B0%8F%E8%AF%B4-%E7%9C%8B%E5%B0%8F%E8%AF%B4%E7%94%B5%E5%AD%90%E4%B9%A6%E7%9A%84%E9%98%85%E8%AF%BB%E7%A5%9E%E5%99%A8/id1387717110) 然后到APP内手动日常签到(观看小视频领取奖励)和新手领福利签到以及幸运大转盘 1 次, 系统提示: `首次写入xxxUrl成功🎉,首次写入xxxCookie成功🎉`
-5. 最后就可以把第 1 条脚本注释掉了
-6. 运行一次脚本, 如果提示重复签到, 那就算成功了!
+   - QuanX: 把`suning.cookie.js`和`suning.js`传到`On My iPhone - Quantumult X - Scripts` (传到 iCloud 相同目录也可, 注意要打开 quanx 的 iCloud 开关)
+3. 获取 Cookie:
+   - 打开 APP, 系统提示: `获取Cookie: 成功 (登录链接)`
+   - 进入 `主页` > `签到有礼`, 系统提示: `获取Cookie: 成功 (每日签到)`
+   - 进入 `主页` > `领取红包`, 系统提示: `获取Cookie: 成功 (每日红包)`
+4. 把获取 Cookie 的脚本
 
 > 第 1 条脚本是用来获取 cookie 的, 用浏览器访问一次获取 cookie 成功后就可以删掉或注释掉了, 但请确保在`登录成功`后再获取 cookie.
 
@@ -101,4 +100,4 @@ xiaoshuo.qm989.com
 
 [@ConnersHua](https://github.com/ConnersHua)
 
-[@danchaw](https://github.com/danchaw)
+[@Liquor030](https://github.com/Liquor030)
