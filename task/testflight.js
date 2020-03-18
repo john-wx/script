@@ -140,7 +140,7 @@ const url = "https://testflight.apple.com/join/";
 const appkey = "2vnRvOTX,fHI8igli";
 
 //是否在没有tf位置的时候任然弹出通知，默认不弹出,防止过多无用通知。
-var isNOtify = false;
+var isNOtify = true;
 const fullstr = /(此 Beta 版本的测试员已满)|(此 Beta 版本目前不接受任何新测试员)/;
 const appnamereg = /<title>加入 Beta 版“(.+)” - TestFlight - Apple<\/title>/;
 var proarray = new Array();
