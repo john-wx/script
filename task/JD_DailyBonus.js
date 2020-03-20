@@ -1,7 +1,7 @@
 /*
 京东多合一签到脚本
 
-更新于: 2020.3.17 11:00 v82
+更新于: 2020.3.19 20:50 v84
 有效接口: 22
 
 该脚本同时兼容: QuantumultX, Surge, Loon, JSBox, Node.js
@@ -56,14 +56,14 @@ QX 或 Surge 或 Loon MITM = api.m.jd.com
 ~~~~~~~~~~~~~~~~
 */
 
-var log = false; //是否开启日志, false则关闭
+var log = true; //是否开启日志, false则关闭
 var stop = 0; //自定义延迟签到,单位毫秒,(如填200则每个接口延迟0.2秒执行),默认无延迟
 var $nobyda = nobyda();
 
 //  填此处↓↓↓
 var Key = ''; //如果使用JSBox或Node.js, 单引号内自行填写您抓取的Cookie.
+//  现已加入JsBox持久化接口, 填写Cookie签到成功一次后, 后续JsBox用户更新脚本无需再次填写, 待Cookie失效后再填写即可.
 
-var KEY = Key?Key:$nobyda.read("CookieJD")
 async function all() {//签到模块相互独立,您可注释某一行以禁用某个接口.
   await JingDongBean(stop); //京东京豆
   await JingRongBean(stop); //金融京豆
@@ -125,8 +125,40 @@ if ($nobyda.isRequest) {
   GetCookie()
   $nobyda.done()
 } else {
-  all()
+  ReadCookie()
   $nobyda.done()
+}
+
+function ReadCookie() {
+  return new Promise(resolve => {
+    if (typeof $app != "undefined") {
+      var file = $file.exists("shared://JD_Cookie.txt")
+      if (Key) {
+        var write = $file.write({
+          data: $data({string: Key}),
+          path: "shared://JD_Cookie.txt"
+          })
+        KEY = Key
+        all()
+      } else {
+        if (file) {
+          KEY = $file.read("shared://JD_Cookie.txt").string
+          all()
+        } else {
+          $nobyda.notify("京东签到", "", "脚本终止, 未填写Cookie ‼️")
+        }
+      }
+      resolve('done')
+    } else {
+      KEY = Key?Key:$nobyda.read("CookieJD")
+      if (KEY) {
+        all()
+      } else {
+        $nobyda.notify("京东签到", "", "脚本终止, 未获取Cookie ‼️")
+      }
+      resolve('done')
+    }
+  });
 }
 
 function notify() {
@@ -1076,7 +1108,7 @@ function JingDongClean(s) {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded", Cookie: KEY,
       },
-      body: "body=%7B%22riskParam%22%3A%7B%22eid%22%3A%22O5X6JYMZTXIEX4VBCBWEM5PTIZV6HXH7M3AI75EABM5GBZYVQKRGQJ5A2PPO5PSELSRMI72SYF4KTCB4NIU6AZQ3O6C3J7ZVEP3RVDFEBKVN2RER2GTQ%22%2C%22shshshfpb%22%3A%22v1%5C%2FzMYRjEWKgYe%2BUiNwEvaVlrHBQGVwqLx4CsS9PH1s0s0Vs9AWk%2B7vr9KSHh3BQd5NTukznDTZnd75xHzonHnw%3D%3D%22%2C%22pageClickKey%22%3A%22Babel_Sign%22%2C%22childActivityUrl%22%3A%22-1%22%7D%2C%22url%22%3A%22%22%2C%22params%22%3A%22%7B%5C%22enActK%5C%22%3A%5C%22U39rtBF4Dd%2BujQZNkSd%5C%2FtPoL5Cg8baD1q73iQ%2BA4fQ8aZs%5C%2Fn4coLNw%3D%3D%5C%22%2C%5C%22isFloatLayer%5C%22%3Afalse%2C%5C%22ruleSrv%5C%22%3A%5C%2200561054_30882139_t1%5C%22%2C%5C%22signId%5C%22%3A%5C%22Mws14CT%5C%2FvOcaZs%5C%2Fn4coLNw%3D%3D%5C%22%7D%22%2C%22geo%22%3A%7B%22lng%22%3A%220.000000%22%2C%22lat%22%3A%220.000000%22%7D%7D&client=apple&clientVersion=8.5.2&openudid=1fce88cd05c42fe2b054e846f11bdf33f016d676&scope=11&sign=5e20049fbfb8377ede93a1da912b16dd&st=1583942866451&sv=102"
+      body: "body=%7B%22riskParam%22%3A%7B%22eid%22%3A%22O5X6JYMZTXIEX4VBCBWEM5PTIZV6HXH7M3AI75EABM5GBZYVQKRGQJ5A2PPO5PSELSRMI72SYF4KTCB4NIU6AZQ3O6C3J7ZVEP3RVDFEBKVN2RER2GTQ%22%2C%22shshshfpb%22%3A%22v1%5C%2FzMYRjEWKgYe%2BUiNwEvaVlrHBQGVwqLx4CsS9PH1s0s0Vs9AWk%2B7vr9KSHh3BQd5NTukznDTZnd75xHzonHnw%3D%3D%22%2C%22pageClickKey%22%3A%22Babel_Sign%22%2C%22childActivityUrl%22%3A%22-1%22%7D%2C%22url%22%3A%22%22%2C%22params%22%3A%22%7B%5C%22enActK%5C%22%3A%5C%22v9TYVRbhHwPpSSPNbcKAdJlZ4xzX%5C%2FMxy32c5sfRo%5C%2Fq8aZs%5C%2Fn4coLNw%3D%3D%5C%22%2C%5C%22isFloatLayer%5C%22%3Afalse%2C%5C%22ruleSrv%5C%22%3A%5C%2200561054_31187133_t1%5C%22%2C%5C%22signId%5C%22%3A%5C%22M%2BQKQlR6WzAaZs%5C%2Fn4coLNw%3D%3D%5C%22%7D%22%2C%22geo%22%3A%7B%22lng%22%3A%220.000000%22%2C%22lat%22%3A%220.000000%22%7D%7D&client=apple&clientVersion=8.5.4&openudid=1fce88cd05c42fe2b054e846f11bdf33f016d676&scope=11&sign=f6fdebfbbca3dc070d12c21cfa363abe&st=1584621861304&sv=112"
     };
 
     $nobyda.post(JDCUUrl, function(error, response, data) {
