@@ -790,6 +790,7 @@ Rule:
 - DOMAIN-SUFFIX,telegra.ph,PROXY
 - DOMAIN-SUFFIX,telegram.me,PROXY
 - DOMAIN-SUFFIX,telegram.org,PROXY
+- DOMAIN-SUFFIX,telesco.pe,PROXY
 - IP-CIDR,91.108.4.0/22,PROXY,no-resolve
 - IP-CIDR,91.108.8.0/22,PROXY,no-resolve
 - IP-CIDR,91.108.12.0/22,PROXY,no-resolve
@@ -1677,6 +1678,7 @@ Rule:
 - DOMAIN-SUFFIX,zhuihd.com,DIRECT
 - DOMAIN,download.jetbrains.com,DIRECT
 - DOMAIN,images-cn.ssl-images-amazon.com,DIRECT
+- DOMAIN,cdn.angruo.com,DIRECT
 
 # > Apple
 - DOMAIN-SUFFIX,aaplimg.com,Apple
