@@ -1,5 +1,5 @@
 # > OneDrive
 USER-AGENT,OneDrive*,OneDrive
 USER-AGENT,OneDriveiOSApp*,OneDrive
-USER-AGENT,mg001uolacnz-my.sharepoint.com
-USER-AGENT,australiasoutheast1-mediap.svc.ms
+USER-AGENT,mg001uolacnz-my.sharepoint.com,OneDrive
+USER-AGENT,australiasoutheast1-mediap.svc.ms,OneDrive
