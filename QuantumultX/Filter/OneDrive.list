@@ -1,5 +1,5 @@
 # > OneDrive
 USER-AGENT,OneDrive*,OneDrive
 USER-AGENT,OneDriveiOSApp*,OneDrive
-host-suffix,mg001uolacnz-my.sharepoint.com,OneDrive
-host-suffix,australiasoutheast1-mediap.svc.ms,OneDrive
+DOMAIN-suffix,mg001uolacnz-my.sharepoint.com,OneDrive
+DOMAIN-suffix,australiasoutheast1-mediap.svc.ms,OneDrive
