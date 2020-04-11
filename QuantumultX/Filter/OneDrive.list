@@ -3,3 +3,4 @@ USER-AGENT,OneDrive*,OneDrive
 USER-AGENT,OneDriveiOSApp*,OneDrive
 DOMAIN,mg001uolacnz-my.sharepoint.com,OneDrive
 DOMAIN,australiasoutheast1-mediap.svc.ms,OneDrive
+DOMAIN,api.onedrive.com,OneDrive
