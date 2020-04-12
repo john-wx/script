@@ -1,4 +1,4 @@
 # > Speedtest by Ookla
 USER-AGENT,SpeedTest*,Speedtest
 DOMAIN-KEYWORD,speedtest,Speedtest
-IP-CIDR,74.85.229.0/3,Speedtest
+DOMAIN-KEYWORD,comcast,Speedtest
