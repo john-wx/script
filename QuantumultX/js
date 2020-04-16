@@ -1,0 +1,19 @@
+hostname=tncj.hortorgames.com,ssl-api.itranslateapp.com,api.bilibili.com,mjappaz.yefu365.com,mjapp.whetyy.com,
+
+# >> 头脑吃鸡
+;^https://tncj.hortorgames.com/chicken/fight/(answer|findQuiz) url script-response-body john/tncj.min.js
+
+# >> Bilibili
+^https:\/\/app\.bilibili\.com\/(search\/resource|x\/(resource\/show\/tab|v2\/(view|rank|feed|reply\/main|account\/mine))) url script-response-body john/Bilibili.js
+
+# >> itranslate&lingo&voice&converse
+^https:\/\/ssl-api\.itranslateapp\.com\/.*\/subscriptions\/.*\/ios$ url script-response-body john/itranslate.js
+
+# >> 爱美剧Vip (by huihui）(官网：app.meiju2018.com)
+^https?:\/\/api.bjxkhc.com\/index\.php\/app\/ios\/(vod\/show|(user|vod|topic|type)\/index) url script-response-body john/aimeiju.js
+
+# >> 解锁B站大会员-圈X规则
+;https://api.bilibili.com/pgc/view/app/season url 302 https://bilibili.mlyx.workers.dev/
+;https://api.bilibili.com/pgc/player/api/playurl url 302 https://bilibili.mlyx.workers.dev/
+
+
