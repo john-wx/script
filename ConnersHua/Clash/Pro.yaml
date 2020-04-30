@@ -9,16 +9,16 @@ socks-port: 7891
 
 allow-lan: false
 
-# Only applicable when setting allow-lan to true
-# "*": bind all IP addresses
-# 192.168.122.11: bind a single IPv4 address
-# "[aaaa::a8aa:ff:fe09:57d8]": bind a single IPv6 address
+# 仅适用于设置 allow-lan 为 true 时
+# "*": 绑定所有 IP 地址
+# 192.168.122.11: 绑定单个 IPv4 地址
+# "[aaaa::a8aa:ff:fe09:57d8]": 绑定单个 IPv6 地址
 # bind-address: "*"
 
-# Rule / Global/ Direct (默认为 Rule 模式)
+# Rule / Global / Direct (默认为 Rule 模式)
 mode: Rule
 
-# 设置日志等级 (默认为 info)
+# 设置输出日志的等级 (默认为 info)
 # info / warning / error / debug / silent
 log-level: info
 
@@ -29,32 +29,48 @@ external-controller: 127.0.0.1:9090
 # input is a relative path to the configuration directory or an absolute path
 # external-ui: folder
 
-# RESTful API 的口令 (可选)
+# Secret for RESTful API (Optional)
 # secret: ""
 
-# experimental feature
+# 实验性功能
 experimental:
-  ignore-resolve-fail: true # ignore dns resolve fail, default value is true
+  ignore-resolve-fail: true # 忽略 DNS 解析失败，默认值为true
+  # interface-name: en0 # 出站接口名称
 
-# authentication of local SOCKS5/HTTP(S) server
+# 本地 SOCKS5/HTTP(S) 服务器认证
 # authentication:
 #  - "user1:pass1"
 #  - "user2:pass2"
 
-# # experimental hosts, support wildcard (e.g. *.clash.dev Even *.foo.*.example.com)
-# # static domain has a higher priority than wildcard domain (foo.example.com > *.example.com)
-# hosts:
+# # 实验性 hosts, 支持通配符（如 *.clash.dev 甚至 *.foo.*.examplex.com ）
+# # 静态域的优先级高于通配符域（foo.example.com > *.example.com）
+hosts:
+  'mtalk.google.com': 108.177.125.188
 #   '*.clash.dev': 127.0.0.1
 #   'alpha.clash.dev': '::1'
 
-# DNS 设置
 # dns:
-#   enable: true
-#   listen: 0.0.0.0:53
-#   enhanced-mode: fake-ip
-#   nameserver:
-#    - 119.29.29.29
-#    - 223.5.5.5
+  # enable: true # set true to enable dns (default is false)
+  # ipv6: false # default is false
+  # listen: 0.0.0.0:53
+  # # default-nameserver: # resolve dns nameserver host, should fill pure IP
+  # #   - 114.114.114.114
+  # #   - 8.8.8.8
+  # enhanced-mode: redir-host # or fake-ip
+  # # fake-ip-range: 198.18.0.1/16 # if you don't know what it is, don't change it
+  # fake-ip-filter: # fake ip white domain list
+  #   - '*.lan'
+  #   - localhost.ptlogin2.qq.com
+  # nameserver:
+  #   - 114.114.114.114
+  #   - tls://dns.rubyfish.cn:853 # dns over tls
+  #   - https://1.1.1.1/dns-query # dns over https
+  # fallback: # concurrent request with nameserver, fallback used when GEOIP country isn't CN
+  #   - tcp://1.1.1.1
+  # fallback-filter:
+  #   geoip: true # default
+  #   ipcidr: # ips in these subnets will be considered polluted
+  #     - 240.0.0.0/4
 
 # Clash for Windows
 cfw-bypass:
@@ -1221,6 +1237,7 @@ Rule:
 - DOMAIN-SUFFIX,recaptcha.net,PROXY
 - DOMAIN-SUFFIX,shattered.io,PROXY
 - DOMAIN-SUFFIX,synergyse.com,PROXY
+- DOMAIN-SUFFIX,telephony.goog,PROXY
 - DOMAIN-SUFFIX,tensorflow.org,PROXY
 - DOMAIN-SUFFIX,tfhub.dev,PROXY
 - DOMAIN-SUFFIX,tiltbrush.com,PROXY
