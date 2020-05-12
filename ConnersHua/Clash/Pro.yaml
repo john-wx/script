@@ -11,7 +11,7 @@ allow-lan: false
 
 # 仅适用于设置 allow-lan 为 true 时
 # "*": 绑定所有 IP 地址
-# 192.168.122.11: 绑定单个 IPv4 地址
+  # 192.168.122.11: 绑定单个 IPv4 地址
 # "[aaaa::a8aa:ff:fe09:57d8]": 绑定单个 IPv6 地址
 # bind-address: "*"
 
@@ -1475,6 +1475,9 @@ Rule:
 - DOMAIN-SUFFIX,tencent-cloud.net,DIRECT
 - DOMAIN-SUFFIX,tenpay.com,DIRECT
 - DOMAIN,file-igamecj.akamaized.net,DIRECT
+- IP-CIDR,182.254.116.0/24,DIRECT
+- IP-CIDR,203.205.252.0/23,DIRECT
+- IP-CIDR,203.205.254.0/23,DIRECT
 # > YYeTs
 # USER-AGENT,YYeTs*,DIRECT
 - DOMAIN-SUFFIX,jstucdn.com,DIRECT
