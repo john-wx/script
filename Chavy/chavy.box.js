@@ -157,6 +157,18 @@ function getSystemApps() {
       icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/v2ex.png'
     },
     {
+      id: 'NeteaseMusic',
+      name: '网易云音乐',
+      keys: ['chavy_cookie_neteasemusic'],
+      settings: [
+        { id: 'CFG_neteasemusic_retryCnt', name: '重试次数', val: 10, type: 'text', desc: '一直尝试签到直至出现“重复签到”标识!' },
+        { id: 'CFG_neteasemusic_retryInterval', name: '重试间隔 (毫秒)', val: 500, type: 'text', desc: '每次重试间隔时间 (毫秒)！' }
+      ],
+      author: '@chavyleung',
+      repo: 'https://github.com/chavyleung/scripts/tree/master/neteasemusic',
+      icon: 'https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/ef/e3/f4/efe3f4fa-288f-65fc-fc59-eacf6c1cea01/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/460x0w.png'
+    },
+    {
       id: 'WPS',
       name: 'WPS',
       keys: ['chavy_signhomeurl_wps', 'chavy_signhomeheader_wps'],
@@ -174,7 +186,63 @@ function getSystemApps() {
       icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/25/6a/00/256a002d-b5f0-46e1-ef55-841d41f8aafc/AppIcon-0-1x_U007emarketing-0-7-0-0-85-220.png/460x0w.png',
       tasks: [{ cron: '3 0 * * *', script: 'noteyoudao.js' }],
       rewrites: [{ type: 'request', pattern: '^https://note.youdao.com/yws/mapi/user?method=checkin', script: 'noteyoudao.cookie.js', body: true }]
-    }
+    },
+    {
+      id: 'QTT',
+      name: '趣头条',
+      keys: ['senku_signKey_qtt', 'senku_signXTK_qtt', 'senku_readKey_qtt','senku_navCoinKey_qtt'],
+      author: '@GideonSenku',
+      repo: 'https://github.com/chavyleung/scripts/tree/master/qtt',
+      icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/qtt.png',
+    },
+    {
+      id: 'qmkg',
+      name: '全民K歌',
+      keys: ['senku_signurl_qmkg', 'senku_signheader_qmkg', 'senku_signbody_qmkg'],
+      author: '@GideonSenku',
+      repo: 'https://github.com/chavyleung/scripts/tree/master/qmkg',
+      icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/qmkg.png',
+    },
+    {
+      id: 'bcz',
+      name: '百词斩',
+      keys: ['senku_cookie_bcz', 'senku_key_bcz'],
+      author: '@GideonSenku',
+      repo: 'https://github.com/chavyleung/scripts/tree/master/bcz',
+      icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/midu.png',
+    },
+    {
+      id: 'zxhc',
+      name: '智行火车票',
+      keys: ['senku_signurl_zxhc', 'senku_signheader_zxhc','senku_signbody_zxhc'],
+      author: '@GideonSenku',
+      repo: 'https://github.com/chavyleung/scripts/tree/master/zxhc',
+      icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/zxhc.png',
+    },
+    {
+      id: 'fenqile',
+      name: '分期乐',
+      keys: ['senku_signurl_fenqile', 'senku_signheader_fenqile','senku_signbody_fenqile','senku_signDailyKey_fenqile','senku_signDailyUrlKey_fenqile'],
+      author: '@GideonSenku',
+      repo: 'https://github.com/chavyleung/scripts/tree/master/fenqile',
+      icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/fenqile.png',
+    },
+    {
+      id: 'fandeng',
+      name: '樊登读书',
+      keys: ['senku_signurl_pandeng', 'senku_signheader_pandeng','senku_signbody_pandeng'],
+      author: '@GideonSenku',
+      repo: 'https://github.com/chavyleung/scripts/tree/master/fandeng',
+      icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/fandeng.png',
+    },
+    {
+      id: 'dbsj',
+      name: '豆瓣时间',
+      keys: ['senku_signurl_dbsj', 'senku_signheader_dbsj','senku_signbody_dbsj'],
+      author: '@GideonSenku',
+      repo: 'https://github.com/chavyleung/scripts/tree/master/dbsj',
+      icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/dbsj.png',
+    },
   ]
   sysapps.forEach((app) => {
     app.datas = Array.isArray(app.datas) ? app.datas : []
@@ -251,12 +319,6 @@ function handleApi() {
       })
       $.subt = `保存会话: ${isAllSaveSuc ? '成功' : '失败'} (${app.name})`
       $.msg($.name, $.subt, '')
-      // sessions.push(session)
-      // const savesuc = $.setdata(JSON.stringify(sessions), $.KEY_sessions)
-      // $.subt = `保存会话: ${savesuc ? '成功' : '失败'} (${session.appName})`
-      // $.desc = []
-      // $.desc.push(`会话名称: ${session.name}`, `应用名称: ${session.appName}`, `会话编号: ${session.id}`, `应用编号: ${session.appId}`, `数据: ${JSON.stringify(session)}`)
-      // $.msg($.name, $.subt, $.desc.join('\n'))
     }
   }
   // 保存设置
