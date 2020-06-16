@@ -253,6 +253,23 @@ function getSystemApps() {
       author: '@GideonSenku',
       repo: 'https://github.com/chavyleung/scripts/tree/master/dbsj',
       icons: ['https://raw.githubusercontent.com/Orz-3/mini/master/dbsj.png', 'https://raw.githubusercontent.com/Orz-3/task/master/dbsj.png']
+    },
+    {
+      id: 'txnews',
+      name: '腾讯新闻',
+      keys: ['sy_signurl_txnews', 'sy_cookie_txnews', 'sy_signurl_txnews2', 'sy_cookie_txnews2'],
+      author: '@Sunert',
+      repo: 'https://github.com/Sunert/Scripts/blob/master/Task/txnews.js',
+      icons: ['https://raw.githubusercontent.com/Orz-3/mini/master/txnews.png', 'https://raw.githubusercontent.com/Orz-3/task/master/txnews.png']
+    },
+    {
+      id: 'BoxSwitcher',
+      name: '会话切换',
+      keys: [],
+      settings: [{ id: 'CFG_BoxSwitcher_isSilent', name: '静默运行', val: false, type: 'boolean', desc: '切换会话时不发出系统通知!' }],
+      author: '@chavyleung',
+      repo: 'https://github.com/chavyleung/scripts/blob/master/box/switcher/box.switcher.js',
+      icons: ['https://raw.githubusercontent.com/Orz-3/mini/master/box.png', 'https://raw.githubusercontent.com/Orz-3/task/master/box.png']
     }
   ]
   sysapps
@@ -429,6 +446,8 @@ function printHtml(data, curapp = null) {
     <head>
       <title>BoxJs</title>
       <meta charset="utf-8" />
+      <link rel="Bookmark" href="https://raw.githubusercontent.com/chavyleung/scripts/master/BOXJS.png">
+      <link rel="shortcut icon" href="https://raw.githubusercontent.com/chavyleung/scripts/master/BOXJS.png">
       <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/chavyleung/scripts/master/BOXJS.png"/> 
       <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
       <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet" />
@@ -550,7 +569,7 @@ function printHtml(data, curapp = null) {
                   </v-card-actions>
                 </template>
               </v-card>
-              <v-card class="mx-auto">
+              <v-card class="mx-auto" v-if="ui.curapp.datas && ui.curapp.datas.length > 0">
                 <v-subheader>
                   当前会话 ({{ ui.curapp.datas.length }})
                   <v-spacer></v-spacer>
