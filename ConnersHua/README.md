@@ -1,4 +1,4 @@
-本项目已废弃。
+本项目已废弃 [>](https://github.com/DivineEngine/Profiles/blob/master/README.md)
 
 *Good Luck Have Fun*
 
