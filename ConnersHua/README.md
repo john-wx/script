@@ -1,3 +1,5 @@
+本项目已废弃。
+
 *Good Luck Have Fun*
 
 ## 感谢
@@ -13,7 +15,3 @@
 - [gkeyes](https://github.com/gkeyes)
 - [Mornwind](https://github.com/Mornwind)
 - [zhuohan](https://github.com/zhuohan)
-
-## 许可
-
-[MIT License](https://github.com/ConnersHua/Profiles/raw/master/LICENSE)
