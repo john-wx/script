@@ -306,7 +306,7 @@ async function getAppSubs() {
     const sub = usercfgs.appsubs[subIdx]
     subActs.push(
       new Promise((resolve) => {
-        $.get(sub.url, (err, resp, data) => {
+        $.get({ url: sub.url }, (err, resp, data) => {
           try {
             const respsub = JSON.parse(data)
             if (Array.isArray(respsub.apps)) {
@@ -315,6 +315,7 @@ async function getAppSubs() {
               appsubs.push(respsub)
             }
           } catch (e) {
+            $.logErr(e, resp)
             sub.isErr = true
             sub.apps = []
             sub._raw = JSON.parse(JSON.stringify(sub))
@@ -866,7 +867,7 @@ function printHtml(data, curapp = null, curview = 'app') {
                     <v-btn text small @click="onAddAppSubPaste">粘粘</v-btn>
                     <v-spacer></v-spacer>
                     <v-btn text small color="grey darken-1" text @click="ui.addAppSubDialog.show = false">取消</v-btn>
-                    <v-btn text small color="success darken-1" text @click="onAddAppSub">添加</v-btn>
+                    <v-btn text small color="success darken-1" text :disabled="!/^https?:\\/\\/.*?/.test(ui.addAppSubDialog.url)" @click="onAddAppSub">添加</v-btn>
                   </v-card-actions>
                 </v-card>
               </v-dialog>
