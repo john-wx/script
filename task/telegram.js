@@ -11,7 +11,7 @@
 
 let channels = ["xqsranimegif","dmaomi"];
 let maxMedias = 3;
-let alwaysNotice = false;
+let alwaysNotice = true;
 
 const $ = API("telegram");
 if ($.read("channels") !== undefined) {
