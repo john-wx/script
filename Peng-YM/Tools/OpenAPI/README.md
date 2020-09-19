@@ -5,26 +5,39 @@
 ## 示例
 
 ### 开始使用
+
 将`api-minified.js`内容复制到js脚本下方。
+
 ```javascript
-const $ = API("weather"); // 创建一个名字为weather的脚本。默认为product环境。
-const $ = API("weather", true); // 打开debug环境，抑制所有log输出，保持error信息。
+const $ = API("weather"); // 创建一个名字为weather的脚本。默认为product环境，抑制所有log输出，保持error信息。。
+const $ = API("weather", true); // 打开debug环境，打开所有log输出
 ```
 
 ### Log
+
 ```javascript
 $.log("Something"); // 如果debug设置为false, log不会有任何输出。
 $.info("Some important thing"); // 需要展示给用户的info信息，不受debug影响。
 $.error("Some error message"); // 错误信息，不受debug影响。
 ```
 
-## 通知
+### 环境判断
+
+```javascript
+$.env.isQX;
+$.env.isSurge;
+$.env.isLoon;
+$.env.isNode;
+$.env.isJSBox;
+```
+
+### 通知
 
 ```javascript
 $.notify("title", "subtitle", "content"); // 简单标题
 // URL标题
-$.notify("title", "subtitle", "content", "https://www.bing.com") // 带URL跳转的标题
-$.notify("title", "subtitle", "content", {"open-url": "https://www.bing.com"}) // QX写法
+
+$.notify("title", "subtitle", "content", {"open-url": "https://www.bing.com"})
 // 多媒体标题，QX >= build 316, 其他平台不会显示多媒体内容。
 $.notify("title", "subtitle", "content", {"media-url": "https://avatars2.githubusercontent.com/u/21050064?s=460&u=40a74913dd0a3d00670d05148c3a08c787470021&v=4"}) 
 ```
@@ -39,33 +52,79 @@ npm install -g request
 npm link request
 ```
 
-示例如下：
+OpenAPI提供了全部HTTP方法，包括`["GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS", "PATCH"]`，
+统一通过`$.http`调用：
 
 ```javascript
 // GET
-$.get("https://postman-echo.com/get?foo1=bar1&foo2=bar2")
-  .then((resp) => {
-    // do something with response
-  })
-  .catch((err) => {
-    // handle errors
-  });
+// 简单的请求一个URL
+$.http.get("https://postman-echo.com/get?foo1=bar1&foo2=bar2").then(resp => {
+  // do something
+});
 
-// POST
-const sample = {
-  data: "ECHO",
-};
+// PUT
+// 请求加入一些自定义参数
+$.http.put({
+    url: "https://postman-echo.com/put",
+    body: "HELLO", // 设置请求body
+    headers: {
+      'content-type': 'text/plain'
+    }, // 设置请求头
+    timeout: 200 // 设置请求超时为200ms,
+    // 一些钩子函数
+    events: {
+      onRequest: (method, options) => {
+        // 请求之前可以做一些操作，比如log，注意method和options无法修改
+      },
+      onResponse: (resp) => {
+        // 请求之后可以对resp做修改，记得返回resp！
+        resp.body = JSON.parse(resp.body);
+        return resp;
+      },
+      onTimeout: () => {
+        // timeout的处理，比如可以退出APP
+        $.done();
+      }
+    }
+}).then(response => {
+  // do something
+});
+```
 
-$.post({
-  url: "http://scooterlabs.com/echo",
-  body: JSON.stringify(sample),
+或者你可以使用自定义参数的HTTP对象，实现一些自定义的配置。例如我们可以这样设置默认的baseURL以及默认的请求参数，比如：
+
+- headers
+- timeout
+- events
+
+
+
+```javascript
+$.http = HTTP(baseURL, {
+  timeout: 500,
+  headers: {
+    "User-Agent": "OpenAPI"
+  },
+  events: {
+    onTimeout: () => $.error("OH NO!")
+  }
+});
+```
+
+
+```javascript
+// 设置默认的baseURL为api.github.com，并设置鉴权token
+$.http = HTTP("https://api.github.com", {
+  headers: {
+    Authorization: `token MY_TOKEN`,
+    "User-Agent":
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.141 Safari/537.36"
+  }
 })
-  .then((resp) => {
-    // do something with response
-  })
-  .catch((err) => {
-    // handle errors
-  });
+
+$.http.get("/gists").then(resp => {
+  // do something
+})
 ```
 
 ### 持久化
@@ -97,6 +156,13 @@ $2.write("data", "key");
 
 Node环境中，`cache`会被保存到和脚本同级目录下的`name.json`中。
 
+**如果希望在脚本里直接存取`$prefs`或者`$persistentStore`里面的缓存，可以通过在`KEY`前面加`#`号实现：**
+
+```javascript
+$.read("#KEY");
+$.write(value, "#KEY");
+```
+
 ### 其他
 
 #### 延时
@@ -114,5 +180,4 @@ $.get("http://www.baidu.com")
 })
 ```
 
-
-
+更全面的用法请查看`example.js`。
