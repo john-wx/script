@@ -4,6 +4,7 @@ README：https://github.com/yichahucha/surge/tree/master
 
 const path1 = "serverConfig";
 const path2 = "wareBusiness";
+const path3 = "basicConfig";
 const consolelog = false;
 const url = $request.url;
 const body = $response.body;
@@ -12,7 +13,19 @@ const $tool = tool();
 if (url.indexOf(path1) != -1) {
     let obj = JSON.parse(body);
     delete obj.serverConfig.httpdns;
+    delete obj.serverConfig.dnsvip;
+    delete obj.serverConfig.dnsvip_v6;
     $done({ body: JSON.stringify(obj) });
+}
+
+if (url.indexOf(path3) != -1) {
+    let obj = JSON.parse(body);
+    let JDHttpToolKit = obj.data.JDHttpToolKit;
+    if (JDHttpToolKit) {
+        delete obj.data.JDHttpToolKit.httpdns;
+        delete obj.data.JDHttpToolKit.dnsvipV6;
+    }
+    $done({ body: JSON.stringify(obj) }); $done({ body });
 }
 
 if (url.indexOf(path2) != -1) {
