@@ -78,6 +78,9 @@
         "key": "TakeaLook",
         "label": "京东看看"
       }, {
+        "key": "JDToyMusic",
+        "label": "京东乐器"
+      }, {
         "key": "JD3C",
         "label": "京东数码"
       }, {
@@ -117,11 +120,20 @@
         "key": "JDEsports",
         "label": "京东电竞"
       }, {
+        "key": "JDHealth",
+        "label": "京东健康"
+      }, {
         "key": "JDCalendar",
         "label": "京东日历"
       }, {
         "key": "JDWomen",
         "label": "京东女装"
+      }, {
+        "key": "JDSecKill",
+        "label": "京东秒杀"
+      }, {
+        "key": "ElevenSale",
+        "label": "京东入场"
       }, {
         "key": "JDShand",
         "label": "京东二手 (如VPN重启,建议禁用)"
@@ -314,7 +326,7 @@
     "descs_html": [
       "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js\">脚本注释</a></h4>"
     ],
-    "keys": [],
+    "keys": ["BiliArea_Policy", "BiliArea_CN", "BiliArea_HK", "BiliArea_TW"],
     "settings": [{
       "id": "BiliAreaNotify",
       "name": "静默运行",
