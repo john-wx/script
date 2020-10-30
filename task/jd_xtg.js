@@ -2,7 +2,7 @@
  * @Author: lxk0301 
  * @Date: 2020-10-21 17:04:04 
  * @Last Modified by: lxk0301
- * @Last Modified time: 2020-10-30 09:35:04
+ * @Last Modified time: 2020-10-31 00:35:04
  */
 /**
  星推官脚本 https://raw.githubusercontent.com/lxk0301/scripts/master/jd_xtg.js
@@ -59,8 +59,27 @@ const starID = [
   'lgyangzishan',
   'laobansongweilong',
   'haiermaoxiaotong',
+  "skgwangyibo"
 ];
-const shareID = [];
+const shareID = [
+  'e646c144-28a7-4b1b-8145-5b0dbff107ec',
+  'b3fcb734-cbdd-4436-9f92-b13b445fc253',
+  'e2d63b19-19d6-4a20-b2af-74b828e703d0',
+  'a7a3b9b7-2872-4244-a627-3b82c271dee7',
+  'f7b521e7-5306-4908-ba8a-df2d221bdd9d',
+  'd17ec374-70d4-49d5-8673-7093e61f904c',
+  '915b9567-dc88-4389-8be9-ecc25588353a',
+  '7abdc8f4-d8f4-497f-8daa-cdab01cf645c',
+  '50ecc8de-1ee5-4420-bbb8-1136d86d80db',
+  'fd0770e1-5007-45c1-8d69-402e02ff9a52',
+  'cb9e9a59-a86b-4a0d-a308-4503fe5baaa4',
+  '93b3afeb-a18c-437c-b5ca-fbd9f389671d',
+  '8778793c-e9ad-4339-a709-723ae3ebde8e',
+  '921c376e-8cc5-4236-8242-ff8bb1b88a95',
+  '8b3ce203-4b10-4c36-a87d-da8c82efe362',
+  'c8e1feb3-6ab1-4410-8444-1de8bd22e041',
+  "dd6b5270-3e5e-436d-be0f-295a8604cf47"
+];
 const JD_API_HOST = 'https://urvsaggpt.m.jd.com/guardianstar';
 !(async () => {
   if (!cookiesArr[0]) {
@@ -74,7 +93,7 @@ const JD_API_HOST = 'https://urvsaggpt.m.jd.com/guardianstar';
       $.index = i + 1;
       $.beanCount = 0;
       $.jdNum = 0;
-      console.log(`\n===============开始【京东账号${$.index}】${UserName}==================\n`);
+      console.log(`\n===============开始【京东账号${$.index}】${$.UserName}==================\n`);
       console.log(`一共${starID.length}个${$.name}任务，耗时会很久，请提前知晓`)
       const beforeTotal = await TotalBean();
       $.beanCount = beforeTotal && beforeTotal['base'].jdNum;
