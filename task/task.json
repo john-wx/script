@@ -1,6 +1,6 @@
 {
     "name": "Task",
-    "description": "https://github.com/john-wx/scripting/tree/master/task",
+    "description": "",
     "task": [
         "2,4 0 * * * https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js, tag=京东, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true", 
         "3 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/box/switcher/box.switcher.js, tag=京东会话1,img-url=https://raw.githubusercontent.com/Orz-3/task/master/box.png, enabled=true", 
