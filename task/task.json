@@ -1,6 +1,6 @@
 {
     "name": "Task",
-    "description": "https://github.com/NobyDa/Script/tree/master",
+    "description": "https://github.com/john-wx/scripting/tree/master/task",
     "task": [
         "2 0 * * * https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js, tag=京东, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/jd.png, enabled=true", 
         "21 8 * * * https://raw.githubusercontent.com/NobyDa/Script/master/52pojie-DailyBonus/52pojie.js, tag=吾爱破解, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/52pj.png, enabled=true",
