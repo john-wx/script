@@ -11,14 +11,14 @@ const shareCodes = [
     zd: $.getdata("zd_shareCode1") || "qjuso6pjlglhwoqbns6eertieu",
     nc: $.getdata("nc_shareCode1") || "3eb63f9389384b7c8d5a1c30d4ef888e",
     mc: $.getdata("mc_shareCode1") || "MTEzMzI0OTE0NTAwMDAwMDA0MDIwMDQ1MQ==",
-    ddgc: $.getdata("dd_shareCode1") || "P04z54XCjVWnYaS5mlAAWc",
+    ddgc: $.getdata("dd_shareCode1") || "T0064rV6RwCjVWnYaS5kRrbA",
     jxgc: $.getdata("jx_shareCode1") || "G6ghgGdR0VU4vaJy0nh7lw==",
   },
   {
     zd: $.getdata("zd_shareCode2") || "4npkonnsy7xi3gk3xb62xvo6t7o27idwrkgneba",
     nc: $.getdata("nc_shareCode2") || "9ae433758c394e60a82d63323d2dc6ab",
     mc: $.getdata("mc_shareCode2") || "MTAxODEyMjkyMDAwMDAwMDQwNTAyMTkx",
-    ddgc: $.getdata("dd_shareCode2") || "P04z54XCjVWnYaS5m9cZ2eu2XRDxmOWY9YtwWU",
+    ddgc: $.getdata("dd_shareCode2") || "T0225KkcR0gd_V2EKBnykvQNcQCjVWnYaS5kRrbA",
     jxgc: $.getdata("jx_shareCode2") || "69vR1qoDh6Zyd3WRNM2H1A==",
   },
 ];
