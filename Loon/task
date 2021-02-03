@@ -35,7 +35,7 @@ cron "2 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_
 cron "5 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_club_lottery.js,tag=摇京豆
 
 # 源头好物红包
-cron "0 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_coupon.js, tag=源头好物红包
+//cron "0 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_coupon.js, tag=源头好物红包
 
 # crazyJoy任务
 cron "12 7 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_crazy_joy.js,tag=crazyJoy任务
