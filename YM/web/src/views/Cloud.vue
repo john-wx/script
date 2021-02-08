@@ -1,0 +1,316 @@
+<template>
+  <v-container fluid>
+    <v-card>
+      <v-card-title>
+        <v-icon left>mdi-cloud</v-icon>
+        同步配置
+        <v-spacer></v-spacer>
+        <v-btn icon @click="openGist()">
+          <v-icon>visibility</v-icon>
+        </v-btn>
+        <v-dialog max-width="400px" v-model="addArtifactDialog">
+          <template #activator="{on}">
+            <v-btn icon v-on="on">
+              <v-icon color="primary">mdi-plus-circle</v-icon>
+            </v-btn>
+          </template>
+          <v-card class="pl-4 pr-4 pb-4 pt-4">
+            <v-subheader>
+              <v-icon left>mdi-plus-circle</v-icon>
+              <h3>添加同步配置</h3>
+            </v-subheader>
+            <v-divider></v-divider>
+            <v-form class="pt-4 pl-4 pr-4 pb-0" v-model="formValid">
+              <v-text-field
+                  v-model="newArtifact.name"
+                  label="配置名称"
+                  placeholder="填入生成配置名称，名称需唯一，如Clash.yaml。"
+                  :rules="validations.nameRules"
+                  clearable
+                  clear-icon="clear"
+              />
+              <v-menu offset-y>
+                <template v-slot:activator="{on}">
+                  <v-text-field
+                      label="类型"
+                      v-on="on"
+                      :rules="validations.required"
+                      :value="getType(newArtifact.type)"
+                  />
+                </template>
+                <v-list dense>
+                  <v-list-item @click="setArtifactType('subscription')">
+                    <v-list-item-icon>
+                      <v-icon>mdi-link</v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-title>订阅</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item @click="setArtifactType('collection')">
+                    <v-list-item-icon>
+                      <v-icon>list</v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-title>组合订阅</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+              <v-menu offset-y>
+                <template v-slot:activator="{on}">
+                  <v-text-field
+                      v-model="newArtifact.source"
+                      label="来源"
+                      :rules="validations.required"
+                      :placeholder="`填入${getType(newArtifact.type) || '来源'}的名称。`"
+                      v-on="on"
+                  />
+                </template>
+                <v-list dense>
+                  <v-list-item
+                      v-for="(sub, idx) in getSources(newArtifact.type)"
+                      @click="newArtifact.source = sub.name"
+                      :key="idx"
+                  >
+                    <v-list-item-avatar>
+                      <v-icon v-if="!sub.icon" color="teal darken-1">mdi-cloud</v-icon>
+                      <v-img :src="sub.icon" v-else :class="getIconClass(sub.icon)"/>
+                    </v-list-item-avatar>
+                    <v-list-item-title>{{ sub.name }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+
+              <v-menu offset-y>
+                <template v-slot:activator="{on}">
+                  <v-text-field
+                      label="目标"
+                      v-on="on"
+                      :rules="validations.required"
+                      :value="newArtifact.platform"
+                  />
+                </template>
+                <v-list dense>
+                  <v-list-item
+                      v-for="platform in ['Surge', 'Loon', 'QX', 'Clash']"
+                      :key="platform"
+                      @click="newArtifact.platform = platform"
+                  >
+                    <v-list-item-avatar>
+                      <v-img :src="getIcon(platform)" :class="getIconClass('#invert')"></v-img>
+                    </v-list-item-avatar>
+                    <v-list-item-title>{{ platform }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-form>
+            <v-divider></v-divider>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="primary" text small :disabled="!formValid" @click="createArtifact()">
+                确认
+              </v-btn>
+              <v-btn text small @click="clear()">
+                取消
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-card-title>
+
+      <template v-for="(artifact, idx) in artifacts">
+        <v-list-item three-line dense :key="artifact.name">
+          <v-list-item-avatar>
+            <v-img :src="getIcon(artifact.platform)" :class="getIconClass('#invert')"/>
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title>
+              {{ artifact.name }}
+            </v-list-item-title>
+            <v-chip-group>
+              <v-chip label>
+                <v-icon left>info</v-icon>
+                {{ getType(artifact.type) }}
+              </v-chip>
+              <v-chip label>
+                <v-icon left>mdi-link</v-icon>
+                {{ artifact.source }}
+              </v-chip>
+            </v-chip-group>
+            <v-list-item-subtitle>更新于：{{ getUpdatedTime(artifact.updated) }}</v-list-item-subtitle>
+          </v-list-item-content>
+          <v-list-item-action>
+            <v-menu bottom left>
+              <template #activator="{ on }">
+                <v-btn icon v-on="on">
+                  <v-icon>mdi-dots-vertical</v-icon>
+                </v-btn>
+              </template>
+              <v-list dense>
+                <v-list-item @click="copy(artifact.url)" v-if="artifact.url">
+                  <v-list-item-title>复制</v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="preview(artifact.name)">
+                  <v-list-item-title>预览</v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="sync(artifact.name)">
+                  <v-list-item-title>同步</v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="deleteArtifact(idx, artifact.name)">
+                  <v-list-item-title>删除</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-list-item-action>
+        </v-list-item>
+      </template>
+    </v-card>
+  </v-container>
+</template>
+
+<script>
+import {axios} from '@/utils';
+import {BACKEND_BASE} from "@/config";
+import {format} from 'timeago.js';
+
+export default {
+  name: "Cloud",
+  data() {
+    return {
+      addArtifactDialog: false,
+      newArtifact: {
+        name: "",
+        type: "subscription",
+        source: "",
+        platform: "",
+      },
+      formValid: false,
+      validations: {
+        nameRules: [
+          v => !!v || "订阅名称不能为空！",
+          v => /^[\w-_.]*$/.test(v) || "订阅名称只能包含英文字符、横杠、点和下划线！"
+        ],
+        required: [
+          v => !!v || "不能为空！"
+        ]
+      }
+    }
+  },
+  computed: {
+    artifacts() {
+      const items = this.$store.state.artifacts;
+      return Object.keys(items).map(k => items[k]);
+    },
+    settings() {
+      return this.$store.state.settings;
+    }
+  },
+  methods: {
+    getIcon(platform) {
+      const ICONS = {
+        "Clash": "https://raw.githubusercontent.com/58xinian/icon/master/clash_mini.png",
+        "QX": "https://raw.githubusercontent.com/Orz-3/mini/none/quanX.png",
+        "Surge": "https://raw.githubusercontent.com/Orz-3/mini/none/surge.png",
+        "Loon": "https://raw.githubusercontent.com/Orz-3/mini/none/loon.png",
+        "ShadowRocket": "https://raw.githubusercontent.com/Orz-3/mini/master/loon.png"
+      }
+      return ICONS[platform];
+    },
+
+    getType(type) {
+      const DESCRIPTIONS = {
+        "subscription": "订阅",
+        "collection": "组合订阅"
+      }
+      return DESCRIPTIONS[type];
+    },
+
+    getUpdatedTime(time) {
+      if (!time) {
+        return "从未更新";
+      } else {
+        return format(time, "zh_CN");
+      }
+    },
+
+    async createArtifact() {
+      try {
+        await axios.post("/artifacts", this.newArtifact);
+        await this.$store.dispatch("FETCH_ARTIFACTS");
+        this.clear();
+      } catch (err) {
+        this.$store.commit("SET_ERROR_MESSAGE", `创建配置失败！${err}`);
+      }
+    },
+
+    async deleteArtifact(idx, name) {
+      try {
+        await axios.delete(`/artifact/${name}`);
+        await this.$store.dispatch("FETCH_ARTIFACTS");
+      } catch (err) {
+        this.$store.commit("SET_ERROR_MESSAGE", `删除配置失败！${err}`);
+      }
+    },
+
+    clear() {
+      this.newArtifact = {
+        name: "",
+        type: "subscription",
+        source: "",
+        platform: ""
+      }
+      this.addArtifactDialog = false;
+    },
+
+    copy(url) {
+      this.$clipboard(url);
+      this.$store.commit("SET_SUCCESS_MESSAGE", "成功复制配置链接");
+    },
+
+    preview(name) {
+      window.open(`${BACKEND_BASE}/api/artifact/${name}?action=preview`);
+    },
+
+    async sync(name) {
+      this.$store.commit("SET_LOADING", true);
+      try {
+        await axios.get(`/artifact/${name}?action=sync`);
+        await this.$store.dispatch("FETCH_ARTIFACTS");
+        this.$store.commit("SET_SUCCESS_MESSAGE", `同步配置成功！`);
+      } catch (err) {
+        this.$store.commit("SET_ERROR_MESSAGE", `同步配置失败！${err}`);
+      } finally {
+        this.$store.commit("SET_LOADING", false);
+      }
+    },
+
+    setArtifactType(type) {
+      this.newArtifact.type = type;
+      this.newArtifact.source = "";
+    },
+
+    getSources(type) {
+      let data;
+      switch (type) {
+        case "subscription":
+          data = this.$store.state.subscriptions;
+          break;
+        case "collection":
+          data = this.$store.state.collections;
+      }
+      return Object.keys(data).map(k => data[k]);
+    },
+
+    getIconClass(url) {
+      return url.indexOf('#invert') !== -1 && !this.$store.state.settings.theme.darkMode ? 'invert' : ''
+    },
+
+    openGist() {
+      window.open(`https://gist.github.com${'/' + this.settings.githubUser || ''}`)
+    }
+  }
+}
+</script>
+
+<style scoped>
+.invert {
+  filter: invert(100%);
+}
+</style>
