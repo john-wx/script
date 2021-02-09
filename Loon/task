@@ -140,7 +140,7 @@ cron "13 7 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd
 cron "55 23 * * 6" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_unbind.js,tag=注销京东会员卡
 
 # 取关京东店铺和商品
-cron "55 23 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_unsubscribe.js,tag=取关京东店铺商品
+cron "45 23 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_unsubscribe.js,tag=取关京东店铺商品
 
 # 小鸽有礼
 cron "5 7 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_xg.js,tag=小鸽有礼
