@@ -17,7 +17,7 @@ cron "1 8,12,18 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/mast
 
 # 京东汽车兑换
 cron "0 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_car_exchange.js, tag=京东汽车兑换
-cron "57,58,59 59 23 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_car_exchange.js, tag=京东汽车兑换1
+cron "58,59 59 23 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_car_exchange.js, tag=京东汽车兑换1
 
 # 京东汽车
 cron "11 7 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_car.js, tag=京东汽车
