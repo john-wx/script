@@ -23,7 +23,7 @@ cron "58,59 59 23 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/ma
 cron "11 7 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_car.js, tag=京东汽车
 
 # 签到领现金
-cron "2 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_cash.js,tag=签到领现金
+cron "3 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_cash.js,tag=签到领现金
 
 # 摇京豆
 cron "5 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_club_lottery.js,tag=摇京豆
