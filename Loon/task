@@ -125,7 +125,7 @@ cron "21 8 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd
 cron "10 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_shop.js,tag=进店领豆
 
 # 东东小窝
-cron "16 22 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_small_home.js, tag=东东小窝
+cron "16 12,15 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_small_home.js, tag=东东小窝
 
 # ✈️天天加速
 cron "8 7-23/3 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed.js,tag=京东天天加速
