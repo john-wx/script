@@ -2,6 +2,9 @@
 
 hostname = api.m.jd.com, wq.jd.com, draw.jdfcloud.com, jdjoy.jd.com, account.huami.com
 
+
+cron ”0 7 * * *“ script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_sign.js,tag=京东极速版
+
 # 京豆变动通知
 cron "2 9 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_bean_change.js, tag=京豆变动通知
 
@@ -96,15 +99,6 @@ cron "16 7 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd
 
 # 点点券
 cron "19 0,18 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_necklace.js,tag=点点券
-
-# 京东压岁钱
-cron "20 8,12 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_newYearMoney.js, tag=京东压岁钱
-
-# 京东压岁钱抢百元卡
-cron "0 0 9,12,16,20 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_newYearMoney_lottery.js, tag=京东压岁钱抢百元卡
-
-# 京东年货节
-cron "3 7 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_nh.js,tag=京东年货节
 
 # 东东萌宠
 cron "14 6-18/6 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_pet.js,tag=东东萌宠
