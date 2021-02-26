@@ -1,6 +1,86 @@
 {
   "releases": [
     {
+      "version": "0.7.65",
+      "tags": ["beta"],
+      "author": "@id77",
+      "msg": "更新[BoxJs]: 应用会话前，清空当前会话数据",
+      "notes": [
+        {
+          "name": "优化",
+          "descs": ["应用会话前，清空当前会话数据"]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@id77 PR"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.64",
+      "tags": ["beta"],
+      "author": "@whyour",
+      "msg": "更新[BoxJs]: 增加只复制 App 数据为对象功能",
+      "notes": [
+        {
+          "name": "增加",
+          "descs": ["只复制 App 数据为对象功能"]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@whyour PR"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.62",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 优化底栏按钮高亮样式",
+      "notes": [
+        {
+          "name": "优化",
+          "descs": ["去掉底栏按钮高亮时的背景色"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.61",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 修复订阅为 null 时数据加载报错",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["由于网络问题，导致订阅数据异常后，访问页面时仅显示 BoxJs 字样问题。"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.60",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 增加判断 BoxJs 订阅格式判断",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["添加非 BoxJs 订阅时导致白屏问题"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.59",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: Vuetify 升级至 v2.4",
+      "notes": [
+        {
+          "name": "优化",
+          "descs": ["升级 Vuetify 版本"]
+        }
+      ]
+    },
+    {
       "version": "0.7.58",
       "tags": ["beta"],
       "author": "@chavyleung",
