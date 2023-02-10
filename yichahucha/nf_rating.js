@@ -52,13 +52,13 @@ if (!$tool.isResponse) {
         }
         const requestRatings = async () => {
             const IMDb = await requestIMDbRating(title, year, type);
-            // const Douban = await requestDoubanRating(IMDb.id);
+            const Douban = await requestDoubanRating(IMDb.id);
             const IMDbrating = IMDb.msg.rating;
             const tomatoes = IMDb.msg.tomatoes;
             const country = IMDb.msg.country;
-            // const doubanRating = Douban.rating;
-            // const message = `${country}\n${IMDbrating}\n${doubanRating}${tomatoes.length > 0 ? "\n" + tomatoes + "\n" : "\n"}`;
-            const message = `${country}\n${IMDbrating}${tomatoes.length > 0 ? "\n" + tomatoes + "\n" : "\n"}`;
+            const awards = IMDb.msg.awards;
+            const doubanRating = Douban.rating;
+            const message = `${awards.length > 0 ? awards + "\n": ""}${country}\n${IMDbrating}\n${doubanRating}${tomatoes.length > 0 ? "\n" + tomatoes + "\n" : "\n"}`;
             return message;
         }
         let msg = "";
@@ -68,6 +68,12 @@ if (!$tool.isResponse) {
             .finally(() => {
                 let summary = obj.value.videos[videoID].summary;
                 summary["supplementalMessage"] = `${msg}${summary && summary.supplementalMessage ? "\n" + summary.supplementalMessage : ""}`;
+                msg_obj = {"tagline":summary.supplementalMessage, "classification":"REGULAR"}
+                if (summary["supplementalMessages"]) {
+                    summary["supplementalMessages"].push(msg_obj)
+                }else {
+                    summary["supplementalMessages"] = [msg_obj]
+                }
                 if (consoleLog) console.log("Netflix Modified Body:\n" + JSON.stringify(obj));
                 $done({ body: JSON.stringify(obj) });
             });
@@ -88,14 +94,13 @@ function setTitleMap(id, title, map) {
 
 function requestDoubanRating(imdbId) {
     return new Promise(function (resolve, reject) {
-        const url = "https://api.douban.com/v2/movie/imdb/" + imdbId + "?apikey=0df993c66c0c636e29ecbb5344252a4a";
+        const url = `https://www.douban.com/search?cat=1002&q=${imdbId}`;
         if (consoleLog) console.log("Netflix Douban Rating URL:\n" + url);
         $tool.get(url, function (error, response, data) {
             if (!error) {
                 if (consoleLog) console.log("Netflix Douban Rating Data:\n" + data);
                 if (response.status == 200) {
-                    const obj = JSON.parse(data);
-                    const rating = get_douban_rating_message(obj);
+                    const rating = get_douban_rating_message(data);
                     resolve({ rating });
                 } else {
                     resolve({ rating: "Douban:  " + errorTip().noData });
@@ -156,6 +161,10 @@ function get_IMDb_message(data) {
     let tomatoes_message = "";
     let country_message = "";
     let ratings = data.Ratings;
+    let awards_message = "";
+    if (data.Awards && data.Awards != "N/A") {
+        awards_message = "🏆 " + data.Awards;
+    }
     if (ratings.length > 0) {
         const imdb_source = ratings[0]["Source"];
         if (imdb_source == "Internet Movie Database") {
@@ -174,13 +183,15 @@ function get_IMDb_message(data) {
         }
     }
     country_message = get_country_message(data.Country);
-    return { rating: rating_message, tomatoes: tomatoes_message, country: country_message }
+    return { rating: rating_message, tomatoes: tomatoes_message, country: country_message, awards: awards_message }
 }
 
 function get_douban_rating_message(data) {
-    const average = data.rating.average;
-    const numRaters = data.rating.numRaters;
-    const rating_message = `Douban:  ⭐️ ${average.length > 0 ? average + "/10" : "N/A"}   ${numRaters == 0 ? "" : parseFloat(numRaters).toLocaleString()}`;
+    const s = data.replace(/\n| |&#\d{2}/g, '')
+    .match(/\[(\u7535\u5f71|\u7535\u89c6\u5267)\].+?subject-cast\">.+?<\/span>/g);
+    const average = s ? s[0].split(/">(\d\.\d)</)[1] || '' : '';
+    const numRaters = s ? s[0].split(/(\d+)\u4eba\u8bc4\u4ef7/)[1] || '' : '';
+    const rating_message = `Douban:  ⭐️ ${average ? average + "/10" : "N/A"}   ${!numRaters ? "" : parseFloat(numRaters).toLocaleString()}`;
     return rating_message;
 }
 

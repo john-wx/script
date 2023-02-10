@@ -23,6 +23,15 @@ const path18 = "/!/photos/pic_recommend_status";
 const path19 = "/statuses/video_mixtimeline";
 const path20 = "/video/tiny_stream_video_list";
 const path21 = "/photo/info";
+const path22 = "/live/media_homelist";
+const path23 = "/remind/unread_count";
+const path24 = "/search/container_timeline"
+const path25 = "/messageflow/notice"
+const path26 = "/statuses/container_timeline_hot"
+const path27 = "/search/finder"
+const path28 = "/statuses/container_timeline_unread"
+const path29 = "/statuses/container_timeline"
+const path30 = "/profile/container_timeline"
 
 const url = $request.url;
 let body = $response.body;
@@ -59,8 +68,7 @@ if (
         obj.datas = [];
     }
     body = JSON.stringify(obj);
-} else if (url.indexOf(path5) != -1 ||
-    url.indexOf(path18) != -1) {
+} else if (url.indexOf(path5) != -1 || url.indexOf(path18) != -1) {
     let obj = JSON.parse(body);
     obj.data = {};
     body = JSON.stringify(obj);
@@ -84,7 +92,7 @@ if (
     let obj = JSON.parse(body);
     obj.story_list = [];
     body = JSON.stringify(obj);
-} else if (url.indexOf(path11) != -1) {
+} else if (url.indexOf(path11) != -1 || url.indexOf(path22) != -1) {
     let obj = JSON.parse(body);
     obj.data = [];
     body = JSON.stringify(obj);
@@ -101,25 +109,97 @@ if (
 } else if (url.indexOf(path19) != -1) {
     let obj = JSON.parse(body);
     delete obj.expandable_view;
-    if (obj.hasOwnProperty('expandable_views'))
-        delete obj.expandable_views;
+    if (obj.hasOwnProperty("expandable_views")) delete obj.expandable_views;
     body = JSON.stringify(obj);
 } else if (url.indexOf(path21) != -1) {
     if (body.indexOf("ad_params") != -1) {
         body = JSON.stringify({});
     }
+} else if (url.indexOf(path23) != -1) {
+    let obj = JSON.parse(body);
+    obj.video = {};
+    body = JSON.stringify(obj);
+} else if (url.indexOf(path24) != -1) {
+    let obj = JSON.parse(body);
+    filter_items_feed(obj)
+    body = JSON.stringify(obj);
+} else if (url.indexOf(path25) != -1) {
+    let obj = JSON.parse(body);
+    filter_messageflow_notice(obj)
+    body = JSON.stringify(obj);
+} else if ( url.indexOf(path30) != -1 || url.indexOf(path26) != -1 || url.indexOf(path28) != -1 || url.indexOf(path29) != -1) {
+    let obj = JSON.parse(body);
+    filter_items_feed(obj)
+    body = JSON.stringify(obj);
+} else if (url.indexOf(path27) != -1) {
+    let obj = JSON.parse(body);
+    filter_search_finder(obj)
+    body = JSON.stringify(obj);
 }
 
 $done({ body });
+
+function filter_search_finder(data) {
+    channels = data["channelInfo"]["channels"]
+    for (let index = 0; index < channels.length; index++) {
+        const element = channels[index];
+        if (element["en_name"] == "Discover") {
+            filter_finder_items(element["payload"])
+        }
+    }
+}
+
+function filter_finder_items(data) {
+    items = data["items"]
+    for (let index = items.length-1; index >= 0; index--) {
+        const item = items[index];
+        if (item["category"] == "card") {
+            type = item["data"]["card_type"]
+            if (type == 118) {
+                items.splice(index,1)
+            }
+        }else if (item["category"] == "feed") {
+            type = item["data"]["mblogtype"]
+            if (type == 1) {
+                items.splice(index,1)
+            }
+        }
+    }
+}
+
+function filter_messageflow_notice(data) {
+    items = data["messages"]
+    for (let index = items.length-1; index >= 0; index--) {
+        const item = items[index];
+        if (item["isrecommend"] == true) {
+            items.splice(index,1)
+        }
+    }
+}
+
+function filter_items_feed(data) {
+    items = data["items"]
+    for (let index = items.length-1; index >= 0; index--) {
+        const item = items[index];
+        if (item["category"] == "feed") {
+            type = item["data"]["mblogtype"]
+            if (type == 1) {
+                items.splice(index,1)
+            }
+        }
+    }
+}
 
 function filter_timeline_statuses(statuses) {
     if (statuses && statuses.length > 0) {
         let i = statuses.length;
         while (i--) {
             let element = statuses[i];
-            if (is_timeline_likerecommend(element.title) ||
+            if (
+                is_timeline_likerecommend(element.title) ||
                 is_timeline_ad(element) ||
-                is_stream_video_ad(element)) {
+                is_stream_video_ad(element)
+            ) {
                 statuses.splice(i, 1);
             }
         }
@@ -155,11 +235,15 @@ function filter_timeline_cards(cards) {
                         let card_type = card_group_item.card_type;
                         if (card_type) {
                             if (card_type == 9) {
-                                if (is_timeline_ad(card_group_item.mblog)) card_group.splice(i, 1);
+                                if (is_timeline_ad(card_group_item.mblog))
+                                    card_group.splice(i, 1);
                             } else if (card_type == 118 || card_type == 89) {
                                 card_group.splice(i, 1);
                             } else if (card_type == 42) {
-                                if (card_group_item.desc == '\u53ef\u80fd\u611f\u5174\u8da3\u7684\u4eba') {
+                                if (
+                                    card_group_item.desc ==
+                                    "\u53ef\u80fd\u611f\u5174\u8da3\u7684\u4eba"
+                                ) {
                                     cards.splice(j, 1);
                                     break;
                                 }
@@ -194,9 +278,10 @@ function filter_top_search(group) {
 
 function is_timeline_ad(mblog) {
     if (!mblog) return false;
-    let promotiontype = mblog.promotion && mblog.promotion.type && mblog.promotion.type == "ad";
+    let promotiontype =
+        mblog.promotion && mblog.promotion.type && mblog.promotion.type == "ad";
     let mblogtype = mblog.mblogtype && mblog.mblogtype == 1;
-    return (promotiontype || mblogtype) ? true : false;
+    return promotiontype || mblogtype ? true : false;
 }
 
 function is_timeline_likerecommend(title) {
@@ -204,5 +289,5 @@ function is_timeline_likerecommend(title) {
 }
 
 function is_stream_video_ad(item) {
-    return item.ad_state && item.ad_state == 1
+    return item.ad_state && item.ad_state == 1;
 }
