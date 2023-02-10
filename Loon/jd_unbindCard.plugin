@@ -1,0 +1,8 @@
+#!name=取消绑定京东店铺会员
+#!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/JD.png
+
+[URL Rewrite]
+^https:\/\/shopmember\.m\.jd\.com\/shopcard\/\?(venderId=[0-9]+).* https:\/\/shopmember\.m\.jd\.com\/member\/memberCloseAccount\?$1 302
+
+[MITM]
+hostname = shopmember.m.jd.com
