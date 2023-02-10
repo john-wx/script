@@ -1,4 +1,5 @@
 #!name=取消绑定京东店铺会员
+#!desc=更新时间2023-02-10 20:18
 #!icon=https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/JD.png
 
 [URL Rewrite]
