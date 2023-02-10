@@ -8,6 +8,7 @@
 
 > 2020.3.16 添加银瓜子转硬币脚本 感谢[@lcandy2](https://github.com/lcandy2) PR
 
+> 2022.7.7 添加粉丝牌升级任务
 ## 配置 (Surge)
 
 ```properties
@@ -16,9 +17,14 @@
 
 [Script]
 http-request ^https:\/\/(www|live)\.bilibili\.com\/?.? script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.cookie.js
-cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.js
+
+bilibili = type=cron,cronexp=10 0 0 * * *,wake-system=1,timeout=100,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.js
+
 # 如需银瓜子转硬币，添加以下内容 
 cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.silver2coin.js
+
+# 如需抽直播红包，添加以下内容
+bilibili = type=cron,cronexp=10 10 0 * * *,wake-system=1,timeout=100,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/redpocket.js
 ```
 
 ## 配置 (QuanX)
@@ -49,6 +55,7 @@ cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scr
 4. 打开浏览器访问: https://www.bilibili.com 或 https://live.bilibili.com
 5. 系统提示: `获取Cookie: 成功`
 6. 最后就可以把第 1 条脚本注释掉了
+7. 请根据自己的粉丝牌数设置脚本超时时间，一个粉丝牌预计执行20s
 
 > 第 1 条脚本是用来获取 cookie 的, 用浏览器访问一次获取 cookie 成功后就可以删掉或注释掉了, 但请确保在`登录成功`后再获取 cookie.
 

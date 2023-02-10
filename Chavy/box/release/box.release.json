@@ -1,6 +1,539 @@
 {
   "releases": [
     {
+      "version": "0.12.2",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "fix(boxjs): 修复 stash 无法运行脚本问题",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["stash 无法运行脚本问题"]
+        }
+      ]
+    },
+    {
+      "version": "0.12.1",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "fix(boxjs): 还原 gist 可能导致的白屏",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["还原 gist 可能导致的白屏"]
+        }
+      ]
+    },
+    {
+      "version": "0.12.0",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "feat(boxjs): 添加订阅事件 onInstall",
+      "notes": [
+        {
+          "name": "新增 (本次更新主要面向开发者)",
+          "descs": [
+            "添加订阅时, 可自动触发资源安装, 如: 自动安装重写等)",
+            "订阅列表中, 可通过`更多 > 安装`来手动触发安装",
+            "",
+            "开发文档:",
+            "https://docs.boxjs.app/dev/configure#scenes-oninstall",
+            "",
+            "目前支持 (TestFlight):",
+            "1. Loon: v2.1.19 (386) 及以上",
+            "2. Quantumult X: v1.0.29 (670) 及以上"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "0.11.3",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "typo(boxjs): 修复一处拼写错误",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["一处拼写错误"]
+        }
+      ]
+    },
+    {
+      "version": "0.11.2",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "feat(boxjs): 发现新版本时可跳转至 app 内触发资源更新",
+      "notes": [
+        {
+          "name": "新增",
+          "descs": [
+            "发现新版本时可跳转至 app 内触发资源更新",
+            "目前支持 (TestFlight):",
+            "1. Loon: v2.1.19 (386) 及以上",
+            "2. Quantumult X: v1.0.29 (670) 及以上"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "0.10.2",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "fix(boxjs): 尝试修复删除订阅问题",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["部分情况删除订阅引发的问题"]
+        }
+      ]
+    },
+    {
+      "version": "0.10.0",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "feat(boxjs): 一键订阅",
+      "notes": [
+        {
+          "name": "新增",
+          "descs": [
+            "一键订阅",
+            "点击链接就可以自动添加订阅, 免去手动添加的麻烦",
+            "制作一键订阅地址: ",
+            "http://boxjs.com/#/sub/add/经过encodeURIComponent()订阅地址",
+            "如: http://boxjs.com/#/sub/add/https%3A%2F%2Fraw.githubusercontent.com%2Fchavyleung%2Fscripts%2Fmaster%2Fbox%2Fchavy.boxjs.json"
+          ]
+        },
+        {
+          "name": "新增",
+          "descs": [
+            "可以`分享`订阅",
+            "复制与分享的区别: ",
+            "复制: 仅复制订阅地址",
+            "分享: 生成并复制一键订阅地址, 别人仅需点击该地址则可自动添加订阅"
+          ]
+        },
+        {
+          "name": "QX 用户注意",
+          "descs": [
+            "仅配置 httpbackend 的 QX 用户无法使用一键订阅",
+            "需要配置 `重写` 或同时配置 `重写` 及 `httpbackend` 才能使用一键订阅"
+          ]
+        },
+        {
+          "name": "其他",
+          "descs": ["合并了稳定版和测试版, 两个版本已经没有区别"]
+        }
+      ]
+    },
+    {
+      "version": "0.9.0",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "新增(BoxJs): 支持 Stash",
+      "notes": [
+        {
+          "name": "新增",
+          "descs": [
+            "支持 Stash TF (v1.5.0 Build 203+)",
+            "https://chavyleung.gitbook.io/boxjs/#stash"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "0.8.0",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "新增(BoxJs): selects (下拉) 控件",
+      "notes": [
+        {
+          "name": "新增",
+          "descs": [
+            "新增 selects (下拉) 控件",
+            "type: 'selects'",
+            "items: [{key: '', label: ''}]"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "0.7.92",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "新增(BoxJs): 内置 Gist 备份及还原脚本. @dompling",
+      "notes": [
+        {
+          "name": "新增",
+          "descs": ["内置 Gist 备份及还原脚本. @dompling"]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@dompling"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.91",
+      "tags": ["beta"],
+      "author": "@NobyDa",
+      "msg": "修复(BoxJs): 部分情况手动运行脚本异常",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["部分情况手动运行脚本异常"]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@NobyDa PR"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.90",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "fix(boxjs): backup data display bug",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["备份数据太大导致无法进入备份详情"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.89",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "feat(boxjs): add data viewer",
+      "notes": [
+        {
+          "name": "新增",
+          "descs": ["数据编辑 & 查看器"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.88",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "feat(boxjs): store each backup separately",
+      "notes": [
+        {
+          "name": "优化",
+          "descs": ["独立存储每份备份数据, 避免备份数据过大问题"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.87",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "fix(boxjs): language switching bug",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["语言切换问题"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.85",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "feat(boxjs): add language (zh-CN & en-US)",
+      "notes": [
+        {
+          "name": "多语言 (beta)",
+          "descs": ["增加语言: 简中、英文 "]
+        },
+        {
+          "name": "Languages (beta)",
+          "descs": ["add zh-CN & en-US"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.84",
+      "tags": ["beta"],
+      "author": "@lowking",
+      "msg": "更新[BoxJs]: 修复部分情况下壁纸模式上滑手势失效问题",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["部分情况下壁纸模式上滑手势失效问题"]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@lowking PR"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.83",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 增加图标拖拽动画",
+      "notes": [
+        {
+          "name": "优化",
+          "descs": ["增加图标拖拽动画"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.82",
+      "tags": ["beta"],
+      "author": "@chouchoui",
+      "msg": "更新[BoxJs]: 格式不正确的HTTP Backend不会生效",
+      "notes": [
+        {
+          "name": "优化",
+          "descs": ["格式不正确的HTTP Backend不会生效"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.81",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 修复拖拽图标的时候出现文本选择光标问题",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["拖拽图标的时候出现文本选择光标问题"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.80",
+      "tags": ["beta"],
+      "author": "@Senku",
+      "msg": "更新[BoxJs]: 调整拖拽延迟",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["降低首页图标拖拽灵敏度，长按拖动"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.79",
+      "tags": ["beta"],
+      "author": "@Senku",
+      "msg": "更新[BoxJs]: 首页图标可自定义顺序",
+      "notes": [
+        {
+          "name": "新增",
+          "descs": ["首页图标可拖拽自定义顺序"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.78",
+      "tags": ["beta"],
+      "author": "@chouchoui",
+      "msg": "更新[BoxJs]: 增加版本说明",
+      "notes": [
+        {
+          "name": "新增",
+          "descs": [
+            "偏好设置增加 HTTP Backend (Quantumult X)",
+            "说明: ",
+            "发现: Quantumult X 通过重写的方式访问 BoxJs 可能会导致无法删除备份的问题, 但通过 HTTP Backend 方式访问则正常。",
+            "建议: 改用 HTTP Backend 或 重写与 HTTP Backend 结合的方式访问 BoxJs",
+            "姿势: 见 使用文档 (悬浮按钮 > ?)"
+          ]
+        },
+        {
+          "name": "优化",
+          "descs": ["增加底部空间避免悬浮按钮遮挡空间"]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@chouchoui PR"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.77",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 更新文案",
+      "notes": [
+        {
+          "name": "更新",
+          "descs": ["部分文案"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.76",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 偏好设置内可以抹掉数据",
+      "notes": [
+        {
+          "name": "新增",
+          "descs": ["偏好设置内可以抹掉数据"]
+        },
+        {
+          "name": "说明",
+          "descs": [
+            "抹掉：所有缓存",
+            "抹掉订阅及页面缓存，会导致所有订阅显示格式错误，双击底栏'订阅'菜单或更新订阅即可恢复",
+            "",
+            "抹掉：收藏应用",
+            "抹掉所有收藏的应用，排序出现问题时可尝试抹掉",
+            "",
+            "抹掉：用户偏好",
+            "抹掉头像、设置、收藏等个人相关的数据, 注意：不含会话、备份、缓存",
+            "",
+            "抹掉：所有会话",
+            "抹掉所有应用下的会话, 注意：不会抹掉当前会话",
+            "",
+            "抹掉：所有备份",
+            "抹掉所有全局备份, 注意：抹掉前可先把备份复制到其他文本类应用内",
+            "",
+            "抹掉：BoxJs",
+            "抹掉所有由 BoxJs 管理的数据, 如：备份、会话、偏好、缓存等 (不包含当前会话)"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "0.7.75",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 修复退出壁纸模式后壁纸无法还原问题",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["修复退出壁纸模式后壁纸无法还原问题"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.74",
+      "tags": ["beta"],
+      "author": "@lowking",
+      "msg": "更新[BoxJs]: 更方便快捷的看小姐姐",
+      "notes": [
+        {
+          "name": "新增特性",
+          "descs": ["悬浮图标下滑进入壁纸模式自动切换到配置好的壁纸，退出同理"]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@lowking PR"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.73",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 修复小火箭环境下手动运行脚本报错问题",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["小火箭环境下手动运行脚本报错问题"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.72",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 适配小火箭, 感谢 @Orz-3 提供图标",
+      "notes": [
+        {
+          "name": "适配",
+          "descs": ["Shadowrocket (小火箭)"]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@Orz-3 提供图标"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.71",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 修复备份数据异常导致无法进入页面问题",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["备份数据异常导致无法进入页面问题"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.69",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 移除 gitee 链接, 改用 github raw 及 jsdelivr",
+      "notes": [
+        {
+          "name": "说明",
+          "descs": [
+            "由于通过 gitee 访问部分仓库资源时出现 `根据相关法律政策,该内容无法显示`",
+            "虽然我手动同步 github 代码后已经可以正常访问",
+            "但为避免以后出现不可预知的情况：",
+            "我们把全部 gitee 链接替换为 github raw 及 jsdelivr",
+            "----",
+            "大家只需正常更新订阅并重启代理即可"
+          ]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@zZPiglet PR"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.68",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 订阅格式错误导致无法进入页面问题",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["订阅格式错误导致无法进入页面问题"]
+        }
+      ]
+    },
+    {
+      "version": "0.7.67",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 自动替换 BoxJs 订阅中 Orz-3/mini 库的图标路径",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["Orz-3/mini 库图标路径"]
+        },
+        {
+          "name": "注意",
+          "descs": [
+            "如果订阅里有旧的图标路径，BoxJs 会自动转换为新路径，有问题请反馈"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "0.7.66",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "更新[BoxJs]: 更新 Orz-3/mini 库图标路径",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["Orz-3/mini 库图标路径"]
+        }
+      ]
+    },
+    {
       "version": "0.7.65",
       "tags": ["beta"],
       "author": "@id77",
@@ -52,7 +585,9 @@
       "notes": [
         {
           "name": "修复",
-          "descs": ["由于网络问题，导致订阅数据异常后，访问页面时仅显示 BoxJs 字样问题。"]
+          "descs": [
+            "由于网络问题，导致订阅数据异常后，访问页面时仅显示 BoxJs 字样问题。"
+          ]
         }
       ]
     },
@@ -88,7 +623,10 @@
       "notes": [
         {
           "name": "优化",
-          "descs": ["BoxJs 内的请求会可以被重写", "刷新订阅添加时间缀避免网络缓存"]
+          "descs": [
+            "BoxJs 内的请求会可以被重写",
+            "刷新订阅添加时间缀避免网络缓存"
+          ]
         }
       ]
     },
@@ -158,7 +696,10 @@
       "notes": [
         {
           "name": "移除",
-          "descs": ["主屏幕的左右滑动手势", "原因: 与浏览器前进后退容易发生冲突"]
+          "descs": [
+            "主屏幕的左右滑动手势",
+            "原因: 与浏览器前进后退容易发生冲突"
+          ]
         },
         {
           "name": "修复",
@@ -192,7 +733,10 @@
         },
         {
           "name": "说明",
-          "descs": ["背景图片清单中设置:无{换行} 跟随系统,跟随系统{换行} light,图片地址{换行} dark,图片地址{换行}", "如果不设置`跟随系统,跟随系统`,则默认跟随系统为无背景"]
+          "descs": [
+            "背景图片清单中设置:无{换行} 跟随系统,跟随系统{换行} light,图片地址{换行} dark,图片地址{换行}",
+            "如果不设置`跟随系统,跟随系统`,则默认跟随系统为无背景"
+          ]
         }
       ]
     },
@@ -206,7 +750,10 @@
       "notes": [
         {
           "name": "修复",
-          "descs": ["代码编辑器高度问题", "部分界面只能在有内容的范围左右滑动问题"]
+          "descs": [
+            "代码编辑器高度问题",
+            "部分界面只能在有内容的范围左右滑动问题"
+          ]
         }
       ]
     },
@@ -220,7 +767,10 @@
       "notes": [
         {
           "name": "优化",
-          "descs": ["勿扰模式下运行脚本不弹出结果页", "壁纸模式下滑更容易退出壁纸模式"]
+          "descs": [
+            "勿扰模式下运行脚本不弹出结果页",
+            "壁纸模式下滑更容易退出壁纸模式"
+          ]
         },
         {
           "name": "移除",
@@ -256,7 +806,10 @@
       "notes": [
         {
           "name": "新增",
-          "descs": ["Surge、QuanX、Loon 手动运行脚本时都可以显示执行结果", "主屏幕左右滑动可切换 首页、应用、订阅、我的 页面"]
+          "descs": [
+            "Surge、QuanX、Loon 手动运行脚本时都可以显示执行结果",
+            "主屏幕左右滑动可切换 首页、应用、订阅、我的 页面"
+          ]
         },
         {
           "name": "修复",
@@ -274,11 +827,19 @@
       "notes": [
         {
           "name": "新增",
-          "descs": ["在顶栏上滑可隐藏顶栏", "在底栏下滑可以隐藏底栏", "壁纸模式上滑可以重新渲染壁纸"]
+          "descs": [
+            "在顶栏上滑可隐藏顶栏",
+            "在底栏下滑可以隐藏底栏",
+            "壁纸模式上滑可以重新渲染壁纸"
+          ]
         },
         {
           "name": "修复",
-          "descs": ["代码编辑器不显示问题", "二次进入搜索界面无法自动获取焦点", "非壁纸模式下上滑仍然重新渲染壁纸"]
+          "descs": [
+            "代码编辑器不显示问题",
+            "二次进入搜索界面无法自动获取焦点",
+            "非壁纸模式下上滑仍然重新渲染壁纸"
+          ]
         }
       ]
     },
@@ -300,11 +861,19 @@
         },
         {
           "name": "悬浮按钮手势",
-          "descs": ["上滑: 重渲染&切换壁纸", "左滑: 悬浮按钮左靠", "右滑: 悬浮按钮右靠", "下滑: 切换壁纸模式"]
+          "descs": [
+            "上滑: 重渲染&切换壁纸",
+            "左滑: 悬浮按钮左靠",
+            "右滑: 悬浮按钮右靠",
+            "下滑: 切换壁纸模式"
+          ]
         },
         {
           "name": "说明",
-          "descs": ["壁纸模式下: 下滑取消壁纸模式", "非壁纸模式: 下滑显示\\隐藏顶栏"]
+          "descs": [
+            "壁纸模式下: 下滑取消壁纸模式",
+            "非壁纸模式: 下滑显示\\隐藏顶栏"
+          ]
         }
       ]
     },
@@ -322,7 +891,12 @@
         },
         {
           "name": "悬浮按钮手势",
-          "descs": ["上滑: 刷新页面 (效果同双击)", "左滑: 悬浮按钮左靠", "右滑: 悬浮按钮右靠", "下滑: 切换壁纸模式"]
+          "descs": [
+            "上滑: 刷新页面 (效果同双击)",
+            "左滑: 悬浮按钮左靠",
+            "右滑: 悬浮按钮右靠",
+            "下滑: 切换壁纸模式"
+          ]
         }
       ]
     },
@@ -388,7 +962,17 @@
         },
         {
           "name": "壁纸",
-          "descs": ["无背景,", "随机,https://uploadbeta.com/api/pictures/random", "推女郎,https://uploadbeta.com/api/pictures/random/?key=推女郎", "性感,https://uploadbeta.com/api/pictures/random/?key=性感", "车模,https://uploadbeta.com/api/pictures/random/?key=车模", "美腿,https://uploadbeta.com/api/pictures/random/?key=美腿", "美女,https://uploadbeta.com/api/pictures/random/?key=美女", "手机妹子,http://api.btstu.cn/sjbz/zsy.php", "手机美女,http://api.btstu.cn/sjbz/?m_lx=suiji"]
+          "descs": [
+            "无背景,",
+            "随机,https://uploadbeta.com/api/pictures/random",
+            "推女郎,https://uploadbeta.com/api/pictures/random/?key=推女郎",
+            "性感,https://uploadbeta.com/api/pictures/random/?key=性感",
+            "车模,https://uploadbeta.com/api/pictures/random/?key=车模",
+            "美腿,https://uploadbeta.com/api/pictures/random/?key=美腿",
+            "美女,https://uploadbeta.com/api/pictures/random/?key=美女",
+            "手机妹子,http://api.btstu.cn/sjbz/zsy.php",
+            "手机美女,http://api.btstu.cn/sjbz/?m_lx=suiji"
+          ]
         }
       ]
     },
@@ -426,7 +1010,11 @@
         },
         {
           "name": "修复",
-          "descs": ["底栏事件无效问题", "部分情况下贡献者重复加载问题", "手势前进后退会白屏&卡屏问题"]
+          "descs": [
+            "底栏事件无效问题",
+            "部分情况下贡献者重复加载问题",
+            "手势前进后退会白屏&卡屏问题"
+          ]
         }
       ]
     },
@@ -604,7 +1192,12 @@
         },
         {
           "name": "说明",
-          "descs": ["除了本机运行外", "可以使用 PC 连上 QuanX 的 HTTP Backend", "实现在 PC 上写代码然后发送到 QuanX 执行", "Surge、Loon 同理"]
+          "descs": [
+            "除了本机运行外",
+            "可以使用 PC 连上 QuanX 的 HTTP Backend",
+            "实现在 PC 上写代码然后发送到 QuanX 执行",
+            "Surge、Loon 同理"
+          ]
         }
       ]
     },
@@ -634,7 +1227,11 @@
         },
         {
           "name": "修复",
-          "descs": ["首页图标点击无效问题", "首页图标有轻微位移问题", "帮助页面打开空白"]
+          "descs": [
+            "首页图标点击无效问题",
+            "首页图标有轻微位移问题",
+            "帮助页面打开空白"
+          ]
         }
       ]
     },
@@ -685,7 +1282,12 @@
         },
         {
           "name": "操作",
-          "descs": ["可以修复全局备份的名字", "点击'应用'回到顶部，再次单击折叠面板", "点击'订阅'回到顶部，再次单击刷新订阅", "点击具体订阅可刷新"]
+          "descs": [
+            "可以修复全局备份的名字",
+            "点击'应用'回到顶部，再次单击折叠面板",
+            "点击'订阅'回到顶部，再次单击刷新订阅",
+            "点击具体订阅可刷新"
+          ]
         }
       ]
     },
@@ -697,7 +1299,10 @@
       "notes": [
         {
           "name": "优化",
-          "descs": ["BoxJs 内的请求会可以被重写", "刷新订阅添加时间缀避免网络缓存"]
+          "descs": [
+            "BoxJs 内的请求会可以被重写",
+            "刷新订阅添加时间缀避免网络缓存"
+          ]
         }
       ]
     },
@@ -740,11 +1345,16 @@
       "notes": [
         {
           "name": "订阅配置",
-          "descs": ["新增: desc、descs、desc_html、descs_html 属性", "与 id、name 同级"]
+          "descs": [
+            "新增: desc、descs、desc_html、descs_html 属性",
+            "与 id、name 同级"
+          ]
         },
         {
           "name": "示例",
-          "descs": ["https://gist.githubusercontent.com/chavyleung/9d53fc4809eb41dca5f5923790ec5554/raw/09742d3473420d8e0bd7b02a910849f65af879fa/chavy.app.sub.simple.json"]
+          "descs": [
+            "https://gist.githubusercontent.com/chavyleung/9d53fc4809eb41dca5f5923790ec5554/raw/09742d3473420d8e0bd7b02a910849f65af879fa/chavy.app.sub.simple.json"
+          ]
         },
         {
           "name": "注意",
@@ -765,7 +1375,9 @@
         },
         {
           "name": "订阅配置",
-          "descs": ["增加 script_timeout 属性, 与 script 同级, 可指定 http-api 超时时间, 单位: 秒"]
+          "descs": [
+            "增加 script_timeout 属性, 与 script 同级, 可指定 http-api 超时时间, 单位: 秒"
+          ]
         }
       ]
     },
@@ -799,11 +1411,19 @@
         },
         {
           "name": "新的重写订阅",
-          "descs": ["Surge: https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.surge.sgmodule", "QuanX: https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.quanx.conf", "Loon: https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.loon.conf"]
+          "descs": [
+            "Surge: https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.surge.sgmodule",
+            "QuanX: https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.quanx.conf",
+            "Loon: https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.loon.conf"
+          ]
         },
         {
           "name": "注意",
-          "descs": ["新的重写订阅只有 boxjs.com", "旧的重写订阅仍然保留 8888 1111 和新增的 boxjs.com", "可以直接访问 http://boxjs.com 不加/home"]
+          "descs": [
+            "新的重写订阅只有 boxjs.com",
+            "旧的重写订阅仍然保留 8888 1111 和新增的 boxjs.com",
+            "可以直接访问 http://boxjs.com 不加/home"
+          ]
         }
       ]
     },
@@ -816,7 +1436,13 @@
       "notes": [
         {
           "name": "优化",
-          "descs": ["双击底栏'应用'可以收缩面板并回到顶部", "双击底栏'订阅'可以刷新订阅并回到顶部", "双击'BoxJs'按钮可以刷新页面", "保存应用设置、清存会话数据能马上生效 (不用刷新页面)", "可以隐藏刷新按钮"]
+          "descs": [
+            "双击底栏'应用'可以收缩面板并回到顶部",
+            "双击底栏'订阅'可以刷新订阅并回到顶部",
+            "双击'BoxJs'按钮可以刷新页面",
+            "保存应用设置、清存会话数据能马上生效 (不用刷新页面)",
+            "可以隐藏刷新按钮"
+          ]
         },
         {
           "name": "主题",
@@ -824,7 +1450,12 @@
         },
         {
           "name": "重写",
-          "descs": ["BoxJs 的重写已经去除代码级依赖", "意味着仅通过修改正则和主机名即可替换 BoxJs 的访问地址", "同时征集一个比较理想的国内域名作为 BoxJs 的免翻墙访问地址", "iOS14 Surge TF 下提示私密连接的问题, 可以找一个 http 的域名来试试"]
+          "descs": [
+            "BoxJs 的重写已经去除代码级依赖",
+            "意味着仅通过修改正则和主机名即可替换 BoxJs 的访问地址",
+            "同时征集一个比较理想的国内域名作为 BoxJs 的免翻墙访问地址",
+            "iOS14 Surge TF 下提示私密连接的问题, 可以找一个 http 的域名来试试"
+          ]
         }
       ]
     },
@@ -867,7 +1498,11 @@
       "notes": [
         {
           "name": "新增",
-          "descs": ["内置应用: 偏好设置", "可以设置多个 http-api (设置完后在侧栏选择)", "可以分别设置暗黑、明亮主题下的主色调"]
+          "descs": [
+            "内置应用: 偏好设置",
+            "可以设置多个 http-api (设置完后在侧栏选择)",
+            "可以分别设置暗黑、明亮主题下的主色调"
+          ]
         },
         {
           "name": "控件",
@@ -875,7 +1510,9 @@
         },
         {
           "name": "注意",
-          "descs": ["设置多个 http-api 时, 建议以逗号开头, 侧栏中选择空白的那个就是走 eval() 方案"]
+          "descs": [
+            "设置多个 http-api 时, 建议以逗号开头, 侧栏中选择空白的那个就是走 eval() 方案"
+          ]
         }
       ]
     },
@@ -892,7 +1529,11 @@
         },
         {
           "name": "新增",
-          "descs": ["可以显示当前切换至哪个会话", "应用可以设定多个运行脚本 scripts: {name: '', script: ''}", "示例: https://gist.githubusercontent.com/chavyleung/9d53fc4809eb41dca5f5923790ec5554/raw/4d8b140ba149c33aa1fc622e93c4035ae74a73bb/chavy.app.sub.simple.json"]
+          "descs": [
+            "可以显示当前切换至哪个会话",
+            "应用可以设定多个运行脚本 scripts: {name: '', script: ''}",
+            "示例: https://gist.githubusercontent.com/chavyleung/9d53fc4809eb41dca5f5923790ec5554/raw/4d8b140ba149c33aa1fc622e93c4035ae74a73bb/chavy.app.sub.simple.json"
+          ]
         }
       ]
     },
@@ -905,11 +1546,16 @@
       "notes": [
         {
           "name": "重写",
-          "descs": ["BoxJs Surge 的重写超时改为 120 秒 (避免手动运行脚本容易超时)"]
+          "descs": [
+            "BoxJs Surge 的重写超时改为 120 秒 (避免手动运行脚本容易超时)"
+          ]
         },
         {
           "name": "调整",
-          "descs": ["迁移 吾爱破解、爱奇艺 至原作者订阅: @NobyDa (野比)", "https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json"]
+          "descs": [
+            "迁移 吾爱破解、爱奇艺 至原作者订阅: @NobyDa (野比)",
+            "https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json"
+          ]
         }
       ]
     },
@@ -922,7 +1568,10 @@
       "notes": [
         {
           "name": "调整",
-          "descs": ["迁移 腾讯新闻 至原作者订阅: @Sunert", "https://raw.githubusercontent.com/Sunert/Scripts/master/Task/sunert.boxjs.json"]
+          "descs": [
+            "迁移 腾讯新闻 至原作者订阅: @Sunert",
+            "https://raw.githubusercontent.com/Sunert/Scripts/master/Task/sunert.boxjs.json"
+          ]
         }
       ]
     },
@@ -939,7 +1588,11 @@
         },
         {
           "name": "说明",
-          "descs": ["手动运行脚本采用 eval() 方案", "Surge 在配置了 http-api 参数下会使用 http-api 方案运行脚本", "因为手法有点特殊, 不保证所有脚本都能良好"]
+          "descs": [
+            "手动运行脚本采用 eval() 方案",
+            "Surge 在配置了 http-api 参数下会使用 http-api 方案运行脚本",
+            "因为手法有点特殊, 不保证所有脚本都能良好"
+          ]
         },
         {
           "name": "感谢",
@@ -1011,7 +1664,13 @@
         },
         {
           "name": "注意",
-          "descs": ["目前仅支持 Surge iOS TF & Surge mac 4.x", "需要在 Surge配置文件中指定 http-api", "然后在 BoxJs 侧栏中设置 http-api 路径", "目前内置应用和 chavy.boxjs.json 内的应用都可以手动运行, 其他订阅需订阅作者更新订阅", "资料: https://community.nssurge.com/d/327-http-api"]
+          "descs": [
+            "目前仅支持 Surge iOS TF & Surge mac 4.x",
+            "需要在 Surge配置文件中指定 http-api",
+            "然后在 BoxJs 侧栏中设置 http-api 路径",
+            "目前内置应用和 chavy.boxjs.json 内的应用都可以手动运行, 其他订阅需订阅作者更新订阅",
+            "资料: https://community.nssurge.com/d/327-http-api"
+          ]
         }
       ]
     },
@@ -1106,11 +1765,16 @@
       "notes": [
         {
           "name": "新增",
-          "descs": ["抹掉数据: https://8.8.8.8/revert (更新完需要重启代理)", "出现问题时可单独访问页面抹掉数据"]
+          "descs": [
+            "抹掉数据: https://8.8.8.8/revert (更新完需要重启代理)",
+            "出现问题时可单独访问页面抹掉数据"
+          ]
         },
         {
           "name": "调整",
-          "descs": ["迁移内置应用至订阅: https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.json (需要手动更新订阅)"]
+          "descs": [
+            "迁移内置应用至订阅: https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.json (需要手动更新订阅)"
+          ]
         }
       ]
     },
@@ -1196,7 +1860,10 @@
       "notes": [
         {
           "name": "新增",
-          "descs": ["仓库协作者&贡献者信息 (带跳转)", "点击订阅可以跳转至作者仓库"]
+          "descs": [
+            "仓库协作者&贡献者信息 (带跳转)",
+            "点击订阅可以跳转至作者仓库"
+          ]
         },
         {
           "name": "修复",
@@ -1308,7 +1975,9 @@
       "notes": [
         {
           "name": "调整",
-          "descs": ["京东, 请使用野比大佬的订阅: https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json"]
+          "descs": [
+            "京东, 请使用野比大佬的订阅: https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json"
+          ]
         }
       ]
     },
@@ -1355,7 +2024,9 @@
       "notes": [
         {
           "name": "修复",
-          "descs": ["部分情况下无法清空会话数值问题 (更新脚本后, 需要手动刷新下订阅)"]
+          "descs": [
+            "部分情况下无法清空会话数值问题 (更新脚本后, 需要手动刷新下订阅)"
+          ]
         }
       ]
     },
@@ -1420,7 +2091,10 @@
       "notes": [
         {
           "name": "修复",
-          "descs": ["部分情况下保存数据不生效问题 (实验)", "Rewrite正则 (注意更新正则)"]
+          "descs": [
+            "部分情况下保存数据不生效问题 (实验)",
+            "Rewrite正则 (注意更新正则)"
+          ]
         },
         {
           "name": "移除",
@@ -1463,7 +2137,10 @@
       "notes": [
         {
           "name": "优化",
-          "descs": ["可以把当前会话保存至指定会话 (注意先保存设置再使用`保存至`)", "可以设置刷新等待秒数 (为 0 时直接刷新不弹窗)"]
+          "descs": [
+            "可以把当前会话保存至指定会话 (注意先保存设置再使用`保存至`)",
+            "可以设置刷新等待秒数 (为 0 时直接刷新不弹窗)"
+          ]
         }
       ]
     },
@@ -1476,7 +2153,10 @@
       "notes": [
         {
           "name": "优化",
-          "descs": ["可以复制单个应用订阅地址", "增加底部间距避免界面被悬浮按钮遮挡"]
+          "descs": [
+            "可以复制单个应用订阅地址",
+            "增加底部间距避免界面被悬浮按钮遮挡"
+          ]
         }
       ]
     },
@@ -1489,7 +2169,12 @@
       "notes": [
         {
           "name": "优化",
-          "descs": ["刷新窗口增加 3 秒倒数自动刷新", "添加订阅能马上刷新订阅", "刷新窗口弹出时会顺便发起更新应用订阅", "可以隐藏手动更新订阅的提示"]
+          "descs": [
+            "刷新窗口增加 3 秒倒数自动刷新",
+            "添加订阅能马上刷新订阅",
+            "刷新窗口弹出时会顺便发起更新应用订阅",
+            "可以隐藏手动更新订阅的提示"
+          ]
         }
       ]
     },
@@ -1502,7 +2187,9 @@
       "notes": [
         {
           "name": "修复",
-          "descs": ["部分情况下导入空数据产生的问题 (如: 京东没有账号2, 导入后提示账号 2 签到失败问题)"]
+          "descs": [
+            "部分情况下导入空数据产生的问题 (如: 京东没有账号2, 导入后提示账号 2 签到失败问题)"
+          ]
         }
       ]
     },
@@ -1541,7 +2228,11 @@
       "notes": [
         {
           "name": "优化",
-          "descs": ["页面渲染时会先出现一串代码问题", "进入应用订阅页面提示手动刷新", "可以隐藏|显示`我的`标题"]
+          "descs": [
+            "页面渲染时会先出现一串代码问题",
+            "进入应用订阅页面提示手动刷新",
+            "可以隐藏|显示`我的`标题"
+          ]
         }
       ]
     },
