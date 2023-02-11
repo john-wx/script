@@ -1,0 +1,12 @@
+#!name = Cubox解锁
+#!desc = Cubox 更新时间2023-02-11
+#!openUrl = 
+#!author = 
+#!homepage = 
+#!icon = https://github.com/john-wx/script/main/icon/Cubox.png
+
+[Script]
+http-response ^https?:\/\/cubox\.pro\/c\/api\/userInfo script-path=https://github.com/john-wx/script/main/john/Cubox_crack.js, requires-body=true, tag=Cubox解锁, img-url=https://github.com/john-wx/script/main/icon/Cubox.png
+
+[Mitm]
+hostname = cubox.pro
