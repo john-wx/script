@@ -1,9 +1,9 @@
 #!name=脚本合集
-#!desc=脚本合集 更新时间2023-02-10 20:40
+#!desc=脚本合集 更新时间2023-02-11 11:40
 #!icon=https://raw.githubusercontent.com/john-wx/script/main/icon/GitHub.png
 
 [MITM]
-hostname = appwk.baidu.com,biz.caiyunapp.com,news.ssp.qq.com, r.inews.qq.com,api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com,mp.weixin.qq.com,pan.baidu.com, api.m.jd.com, api.revenuecat.com, www.xmind.cn, vsco.co, newdrugs.dxy.cn,www.luqijianggushi.com,ap*.intsig.net, license.pdfexpert.com, api.textnow.me,apiios_dq.xiangha.com, appweb_dq.xiangha.com, 101.200.225.157
+hostname = appwk.baidu.com,biz.caiyunapp.com,news.ssp.qq.com, r.inews.qq.com,api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com,mp.weixin.qq.com,pan.baidu.com, api.m.jd.com, api.revenuecat.com, vsco.co, newdrugs.dxy.cn,ap*.intsig.net, license.pdfexpert.com, api.textnow.me,apiios_dq.xiangha.com, appweb_dq.xiangha.com, 101.200.225.157
 
 [Script]
 
@@ -34,14 +34,8 @@ http-response https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user) scrip
 # > adguard premium
 #^https:\/\/mobile-api\.adguard\.com\/api\/1\.0\/ios_validate_receipt$ https://raw.githubusercontent.com/langkhach270389/Scripting/master/Adguard.rsp 302
 
-# > 陆琪讲故事
-#http-response ^https:\/\/www\.luqijianggushi\.com\/api\/v2\/user\/get requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/luqi.js,tag=陆琪讲故事
-
 # > 扫描全能王 pro
 http-response ^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? requires-body=1,script-path=https://raw.githubusercontent.com/john-wx/script/master/john/CamScanner.js,img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/CamScanner.PNG,tag=扫描全能王
-
-# > Bear熊掌记 (By Miao Miao)
-// http-response ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/bear.js,tag=Bear熊掌记
 
 # > 菜谱大全解锁vip 
 http-response ^https?:\/\/apiios_dq\.xiangha\.com\/v\d\/ script-path=https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/CaiPuDaQuan.js,img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/caipudaquan.PNG, requires-body=true, timeout=10, tag=菜谱大全
