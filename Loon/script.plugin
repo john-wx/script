@@ -8,13 +8,13 @@ hostname = appwk.baidu.com,biz.caiyunapp.com,news.ssp.qq.com, r.inews.qq.com,api
 [Script]
 
 # > 腾讯新闻App去广告
-http-response ^https:\/\/(news\.ssp\.qq\.com\/app|r\.inews\.qq\.com\/(get(QQNewsUnreadList|TagFeedList)|gw\/page\/(channel_feed|event_detail)|news_feed\/hot_module_list)) script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/qq-news.js,img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/QQNews.PNG,requires-body=true, timeout=10,tag=腾讯新闻App去广告
+http-response ^https:\/\/(news\.ssp\.qq\.com\/app|r\.inews\.qq\.com\/(get(QQNewsUnreadList|TagFeedList)|gw\/page\/(channel_feed|event_detail)|news_feed\/hot_module_list)) script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/qq-news.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/QQNews.PNG,requires-body=true, timeout=10,tag=腾讯新闻App去广告
 
 # > 微信公众号广告
-http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js,img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/WeChat.PNG,tag=微信公众号广告
+http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/WeChat.PNG,tag=微信公众号广告
 
 # > 百度文库☆解锁VIP文档阅读权限
-http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo script-path=https://raw.githubusercontent.com/john-wx/script/master/john/baidulibrary.js, requires-body=true, timeout=10, tag=百度文库☆解锁VIP文档阅读权限, img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/baiduwenku.PNG
+http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo script-path=https://raw.githubusercontent.com/john-wx/script/main/john/baidulibrary.js, requires-body=true, timeout=10, tag=百度文库☆解锁VIP文档阅读权限, img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/baiduwenku.PNG
 
 # > 百度网盘 解除在线视频倍率/清晰度
 http-response ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js,img-url=https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/BaiduNetDisk.png,requires-body=1,timeout=10,tag=百度网盘视频清晰度
@@ -26,20 +26,20 @@ http-response ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-
 http-response ^https?://(api|h5).xiuxiu.meitu.com/(v1/user/show.json|v1/vip/vip_show.json|v1/vip/prompt/query.json|v1/h5/vip/sub_detail.json|v1/h5/user/self_show.json|v1/h5/vip/user_detail.json|v1/vip/prompt/query.json|v1/vip/prompt/query.json) script-path=https://raw.githubusercontent.com/githubdulong/Script/master/Mtxx.js,img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/Meitu.PNG,requires-body=true, timeout=10, tag=美图秀秀
 
 # > 彩云天气SVIP
-http-response https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user) script-path=https://raw.githubusercontent.com/githubdulong/Script/master/cytq.js, requires-body=true, timeout=10, tag=彩云天气SVIP, img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/caiyuntianqi.PNG
+http-response https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user) script-path=https://raw.githubusercontent.com/githubdulong/Script/master/cytq.js, requires-body=true, timeout=10, tag=彩云天气SVIP, img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/caiyuntianqi.PNG
 
 # > 扫描全能王 pro
-http-response ^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? requires-body=1,script-path=https://raw.githubusercontent.com/john-wx/script/master/john/CamScanner.js,img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/CamScanner.PNG,tag=扫描全能王
+http-response ^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? requires-body=1,script-path=https://raw.githubusercontent.com/john-wx/script/master/john/CamScanner.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/CamScanner.PNG,tag=扫描全能王
 
 # > 菜谱大全解锁vip 
-http-response ^https?:\/\/apiios_dq\.xiangha\.com\/v\d\/ script-path=https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/CaiPuDaQuan.js,img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/caipudaquan.PNG, requires-body=true, timeout=10, tag=菜谱大全
-http-response ^https?:\/\/appweb_dq\.xiangha\.com\/center\/pay\/home script-path=https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/CaiPuDaQuan.js,img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/caipudaquan.PNG,img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/hongpeixiaowu.PNG,requires-body=true, timeout=10, tag=烘培小屋
+http-response ^https?:\/\/apiios_dq\.xiangha\.com\/v\d\/ script-path=https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/CaiPuDaQuan.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/caipudaquan.PNG, requires-body=true, timeout=10, tag=菜谱大全
+http-response ^https?:\/\/appweb_dq\.xiangha\.com\/center\/pay\/home script-path=https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/CaiPuDaQuan.js,img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/caipudaquan.PNG,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/hongpeixiaowu.PNG,requires-body=true, timeout=10, tag=烘培小屋
 
 # > Documents解锁
 #http-request ^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Documents/Documents_crack.js, requires-body=true, tag=Documents解锁, img-url=https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Documents.png
 
 # > note笔记
-http-response ^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers) script-path=https://raw.githubusercontent.com/john-wx/scripting/master/john/noto.lifetime.js, img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/Noto.PNG,requires-body=1,tag=Noto笔记
+http-response ^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers) script-path=https://raw.githubusercontent.com/john-wx/scripting/master/john/noto.lifetime.js, img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/Noto.PNG,requires-body=1,tag=Noto笔记
 
 # > VSCO滤镜VIP
-http-response ^https?:\/\/api\.revenuecat\.com\/v\d\/subscribers\/ script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/vsco.js,img-url=https://raw.githubusercontent.com/john-wx/script/master/icon/VSCO.PNG,requires-body=true, tag=VSCO
+http-response ^https?:\/\/api\.revenuecat\.com\/v\d\/subscribers\/ script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/vsco.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/VSCO.PNG,requires-body=true, tag=VSCO
