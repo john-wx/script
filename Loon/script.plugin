@@ -1,6 +1,6 @@
 #!name=脚本合集
 #!desc=脚本合集 更新时间2023-02-10 20:40
-#!icon=https://raw.githubusercontent.com/john-wx/script/master/icon/GitHub.PNG
+#!icon=https://raw.githubusercontent.com/john-wx/script/main/icon/GitHub.png
 
 [MITM]
 hostname = appwk.baidu.com,biz.caiyunapp.com,news.ssp.qq.com, r.inews.qq.com,api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com,mp.weixin.qq.com,pan.baidu.com, api.m.jd.com, api.revenuecat.com, www.xmind.cn, vsco.co, newdrugs.dxy.cn,www.luqijianggushi.com,ap*.intsig.net, license.pdfexpert.com, api.textnow.me,apiios_dq.xiangha.com, appweb_dq.xiangha.com, 101.200.225.157
