@@ -1,5 +1,5 @@
 #!name=京东比价
-#!desc= 京东比价 更新时间 2023-02-10 20:40
+#!desc= 京东比价 更新时间 2023-02-11 20:30
 #!homepage=
 #!author=
 #!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/JD.png
@@ -7,7 +7,7 @@
 [Script]
 
 # > 京东App 历史价格 
-http-response ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) script-path=https://raw.githubusercontent.com/john-wx/script/master/john/jd_price.js,requires-body=1, tag=京东比价 
+http-response ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) script-path=https://raw.githubusercontent.com/john-wx/script/main/john/jd_price.js,requires-body=1, tag=京东比价 
 
 [MITM]
 
