@@ -11,7 +11,7 @@ hostname = m.douban.com,appwk.baidu.com,-biz.caiyunapp.com,news.ssp.qq.com, r.in
 [Script]
 
 # > 豆瓣添加茶杯狐、大师兄影视、解析网、555电影
-http-response ^https://m.douban.com/movie/subject/.+ script-path=https://raw.githubusercontent.com/githubdulong/Script/master/Douban.js, , img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/douban.png,requires-body=true, timeout=10, tag=豆瓣电影网页优化
+http-response ^https://m.douban.com/movie/subject/.+ script-path=https://raw.githubusercontent.com/john-wx/script/main/john/Douban_qx.js, , img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/douban.png,requires-body=true, timeout=10, tag=豆瓣电影网页优化
 
 # > 腾讯新闻App去广告
 http-response ^https:\/\/(news\.ssp\.qq\.com\/app|r\.inews\.qq\.com\/(get(QQNewsUnreadList|TagFeedList)|gw\/page\/(channel_feed|event_detail)|news_feed\/hot_module_list)) script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/qq-news.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/QQNews.PNG,requires-body=true, timeout=10,tag=腾讯新闻App去广告
