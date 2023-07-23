@@ -1,6 +1,94 @@
 {
   "releases": [
     {
+      "version": "0.12.10",
+      "tags": ["beta"],
+      "author": "@dompling",
+      "msg": "fix(chavy.box.js): 临时优化会话 JSON 过大，导致所有会话操作失效",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["临时优化会话 JSON 过大，导致所有会话操作失效"]
+        }
+      ]
+    },
+    {
+      "version": "0.12.9",
+      "tags": ["beta"],
+      "author": "@GideonSenku",
+      "msg": "让 openAI 写了个 Surge 费用计算器",
+      "notes": [
+        {
+          "name": "实验",
+          "descs": ["Surge 费用计算器"]
+        }
+      ]
+    },
+    {
+      "version": "0.12.6",
+      "tags": ["beta"],
+      "author": "@VirgilClyne",
+      "msg": "fix(boxjs): msg() on Shadowrocket",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["小火箭环境下消息提示问题"]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@VirgilClyne PR"]
+        }
+      ]
+    },
+    {
+      "version": "0.12.5",
+      "tags": ["beta"],
+      "author": "@VirgilClyne",
+      "msg": "fix(boxjs): 修复 Stash & ShadowRocket 报错问题",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["修复 Stash & ShadowRocket 报错问题"]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@VirgilClyne PR", "Stash 团队反馈及协助定位问题"]
+        }
+      ]
+    },
+    {
+      "version": "0.12.4",
+      "tags": ["beta"],
+      "author": "@lowking",
+      "msg": "fix(boxjs): 修复 Surge 环境下执行脚本超时问题",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["Surge 环境下执行脚本超时问题"]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@lowking PR"]
+        }
+      ]
+    },
+    {
+      "version": "0.12.3",
+      "tags": ["beta"],
+      "author": "@chavyleung",
+      "msg": "fix(boxjs): 修复 开关控件 及 多选控件 不正确显示默认值问题",
+      "notes": [
+        {
+          "name": "修复",
+          "descs": ["开关控件 及 多选控件 不正确显示默认值问题"]
+        },
+        {
+          "name": "感谢",
+          "descs": ["@Virgil_C 反馈及协助"]
+        }
+      ]
+    },
+    {
       "version": "0.12.2",
       "tags": ["beta"],
       "author": "@chavyleung",
