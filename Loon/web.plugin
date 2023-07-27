@@ -1,0 +1,10 @@
+#!name=Web
+#!desc=Data manager
+#!openUrl=
+#!author=John
+#!homepage=https://chavyleung.gitbook.io/boxjs/
+#!icon=https://raw.githubusercontent.com/chavyleung/scripts/master/box/icons/BoxJs.png
+
+[Rule]
+DOMAIN-SUFFIX,91porn.com,PROXY
+DOMAIN-SUFFIX,data.flurry.com,PROXY
