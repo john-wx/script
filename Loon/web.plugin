@@ -8,3 +8,4 @@
 [Rule]
 DOMAIN-SUFFIX,91porn.com,PROXY
 DOMAIN-SUFFIX,data.flurry.com,PROXY
+DOMAIN-SUFFIXv4.cvhlscdn.com,PROXY
