@@ -1,17 +1,29 @@
-re('"expires_date":"\\w{4}@"period_type":"\\w+"','"expires_date":"2099@"period_type":"active"');
-function re() {
 var body = $response.body;
- if (arguments[0].includes("@")) {
-  var regs = arguments[0].split("@");
-  var strs = arguments[1].split("@");
-  for (i = 0;i < regs.length;i++) {
-   var reg = new RegExp(regs[i],"g");
-   body = body.replace(reg, strs[i]);
- }
-}
- else {
-  var reg = new RegExp(arguments[0],"g");
-  body = body.replace(reg, arguments[1]);
-}
- $done({body});
-} 
+var obj = JSON.parse(body);
+
+obj.subscriber.entitlements = {
+      "pro": {
+        "expires_date": "2029-06-14T13:54:33Z",
+        "grace_period_expires_date": null,
+        "product_identifier": "com.lkzhao.editor.pro.ios.monthly",
+        "purchase_date": "2022-06-11T13:54:33Z"
+      }
+  },
+  
+obj.subscriber.subscriptions ={
+      "com.lkzhao.editor.pro.ios.monthly": {
+        "billing_issues_detected_at": null,
+        "expires_date": "2029-06-14T13:54:33Z",
+        "grace_period_expires_date": null,
+        "is_sandbox": false,
+        "original_purchase_date": "2022-06-11T13:54:34Z",
+        "ownership_type": "PURCHASED",
+        "period_type": "normal",
+        "purchase_date": "2022-06-11T13:54:33Z",
+        "store": "app_store",
+        "unsubscribe_detected_at": null
+      }
+  }
+
+body = JSON.stringify(obj);
+$done({body});

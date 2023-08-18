@@ -1,5 +1,5 @@
 #!name=脚本合集
-#!desc=脚本合集 更新时间2023-06-23 22:30
+#!desc=脚本合集 更新时间2023-08-18 16:35
 #!openUrl=
 #!author=
 #!homepage=
@@ -45,7 +45,7 @@ http-response ^https?:\/\/appweb_dq\.xiangha\.com\/center\/pay\/home script-path
 #http-request ^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Documents/Documents_crack.js, requires-body=true, tag=Documents解锁, img-url=https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Documents.png
 
 # > note笔记
-http-response ^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers) script-path=https://raw.githubusercontent.com/john-wx/script/main/john/noto.js, img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/Noto.PNG,requires-body=1,tag=Noto笔记
+http-response https://api.revenuecat.com/v1/(receipts|subscribers)/* script-path=https://raw.githubusercontent.com/john-wx/script/main/john/noto.js, img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/Noto.PNG,requires-body=1,tag=Noto笔记
 
 # > VSCO滤镜VIP
 http-response ^https?:\/\/api\.revenuecat\.com\/v\d\/subscribers\/ script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/vsco.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/VSCO.PNG,requires-body=true, tag=VSCO
