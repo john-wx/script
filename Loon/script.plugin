@@ -23,7 +23,7 @@ http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,s
 http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo script-path=https://raw.githubusercontent.com/john-wx/script/main/john/baidulibrary.js, requires-body=true, timeout=10, tag=百度文库☆解锁VIP文档阅读权限, img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/baiduwenku.PNG
 
 # > 百度网盘 解除在线视频倍率/清晰度
-http-response ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js,img-url=https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/BaiduNetDisk.png,requires-body=1,timeout=10,tag=百度网盘视频清晰度
+http-response ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/bdwp.png,requires-body=1,timeout=10,tag=百度网盘视频清晰度
 
 # > 京东比价通知版
 #http-response ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/jd_price_lite.js,img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, requires-body=true, timeout=10, tag=京东比价通知版
