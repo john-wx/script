@@ -1,10 +1,10 @@
 #!name=脚本合集
-#!desc=脚本合集 更新时间2023-08-18 16:35
+#!desc=部分App
 #!openUrl=
 #!author=
 #!homepage=
 #!icon=https://raw.githubusercontent.com/john-wx/script/main/icon/javascript.png
-
+#!date = 2023-08-31 20:50
 [MITM]
 hostname = m.douban.com,appwk.baidu.com,-biz.caiyunapp.com,news.ssp.qq.com, r.inews.qq.com,api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com,mp.weixin.qq.com,pan.baidu.com, api.m.jd.com, api.revenuecat.com, vsco.co, newdrugs.dxy.cn,ap*.intsig.net, -license.pdfexpert.com,apiios_dq.xiangha.com, appweb_dq.xiangha.com, 101.200.225.157
 
