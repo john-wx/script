@@ -20,7 +20,7 @@ http-response ^https:\/\/(news\.ssp\.qq\.com\/app|r\.inews\.qq\.com\/(get(QQNews
 http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/WeChat.PNG,tag=微信公众号广告
 
 # > 百度文库☆解锁VIP文档阅读权限
-http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo script-path=https://raw.githubusercontent.com/john-wx/script/main/john/baidulibrary.js, requires-body=true, timeout=10, tag=百度文库☆解锁VIP文档阅读权限, img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/baiduwenku.PNG
+http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo script-path=https://raw.githubusercontent.com/john-wx/script/main/john/baidulibrary.js, requires-body=true, timeout=10, tag=百度文库☆解锁VIP文档阅读权限, img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/baiduwenku.png
 
 # > 百度网盘 解除在线视频倍率/清晰度
 http-response ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/bdwp.png,requires-body=1,timeout=10,tag=百度网盘视频清晰度
