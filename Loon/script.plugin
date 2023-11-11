@@ -29,7 +29,7 @@ http-response ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-
 #http-response ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/jd_price_lite.js,img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, requires-body=true, timeout=10, tag=京东比价通知版
 
 # > 美图秀秀
-http-response ^https?://(api|h5).xiuxiu.meitu.com/(v1/user/show.json|v1/vip/vip_show.json|v1/vip/prompt/query.json|v1/h5/vip/sub_detail.json|v1/h5/user/self_show.json|v1/h5/vip/user_detail.json|v1/vip/prompt/query.json|v1/vip/prompt/query.json) script-path=https://raw.githubusercontent.com/githubdulong/Script/master/Mtxx.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/Meitu.PNG,requires-body=true, timeout=10, tag=美图秀秀
+http-response ^https?://(api|h5).xiuxiu.meitu.com/(v1/user/show.json|v1/vip/vip_show.json|v1/vip/prompt/query.json|v1/h5/vip/sub_detail.json|v1/h5/user/self_show.json|v1/h5/vip/user_detail.json|v1/vip/prompt/query.json|v1/vip/prompt/query.json) script-path=https://raw.githubusercontent.com/githubdulong/Script/master/Mtxx.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/Meitu.png,requires-body=true, timeout=10, tag=美图秀秀
 
 # > 彩云天气SVIP
 #http-response https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user) script-path=https://raw.githubusercontent.com/githubdulong/Script/master/cytq.js, requires-body=true, timeout=10, tag=彩云天气SVIP, img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/Caiyuntianqi.PNG
