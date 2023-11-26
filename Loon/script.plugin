@@ -17,7 +17,7 @@ http-response ^https://m.douban.com/movie/subject/.+ script-path=https://raw.git
 http-response ^https:\/\/(news\.ssp\.qq\.com\/app|r\.inews\.qq\.com\/(get(QQNewsUnreadList|TagFeedList)|gw\/page\/(channel_feed|event_detail)|news_feed\/hot_module_list)) script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/qq-news.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/QQNews.PNG,requires-body=true, timeout=10,tag=腾讯新闻App去广告
 
 # > 微信公众号广告
-http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/WeChat.PNG,tag=微信公众号广告
+#http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/WeChat.PNG,tag=微信公众号广告
 
 # > 百度文库☆解锁VIP文档阅读权限
 http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo script-path=https://raw.githubusercontent.com/john-wx/script/main/john/baidulibrary.js, requires-body=true, timeout=10, tag=百度文库☆解锁VIP文档阅读权限, img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/baiduwenku.png
