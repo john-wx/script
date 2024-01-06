@@ -3,7 +3,7 @@
 #!openUrl = 
 #!author = Maasea VirgilClyne Choler DivineEngine app2smile
 #!homepage = 
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/120px/YouTube.png
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/YouTube.png
 
 [Rewrite]
 # 使用reject-200方法以减少开销
