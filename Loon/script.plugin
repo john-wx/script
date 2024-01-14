@@ -48,4 +48,4 @@ http-response ^https?:\/\/appweb_dq\.xiangha\.com\/center\/pay\/home script-path
 #http-response https://api.revenuecat.com/v1/(receipts|subscribers)/* script-path=https://raw.githubusercontent.com/john-wx/script/main/john/noto.js, img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/Noto.PNG,requires-body=1,tag=Noto笔记
 
 # > VSCO滤镜VIP
-http-response ^https?:\/\/api\.revenuecat\.com\/v\d\/subscribers\/ script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/vsco.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/VSCO.PNG,requires-body=true, tag=VSCO
+#http-response ^https?:\/\/api\.revenuecat\.com\/v\d\/subscribers\/ script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/vsco.js,img-url=https://raw.githubusercontent.com/john-wx/script/main/icon/VSCO.PNG,requires-body=true, tag=VSCO
