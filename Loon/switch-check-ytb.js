@@ -27,8 +27,8 @@ console.log(JSON.stringify($environment))
 console.log("YouTube："+policy)
 
 function GetPolicy(cnt) {
-    if (cnt && cnt.indexOf("#policy=") !=-1) {
-        return decodeURIComponent(cnt.split("#policy=")[1].trim())
+    if (cnt && cnt.indexOf("#policy=YouTube") !=-1) {
+        return decodeURIComponent(cnt.split("#policy=YouTube")[1].trim())
     }else {
         return ""
     }
