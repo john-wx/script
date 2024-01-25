@@ -24,11 +24,11 @@ const link = { "media-url": "https://raw.githubusercontent.com/KOP-XIAO/Quantumu
 var cronsign = $environment.executeType == 0 || $environment.executeType == "0" || $environment.executeType == "-1"? "Y" : "N"
 var policy = $environment.executeType == 0 || $environment.executeType == "0" || $environment.executeType == "-1"? GetPolicy($environment.sourcePath) : $environment.params
 console.log(JSON.stringify($environment))
-console.log("YouTube："+policy)
+console.log("策略组："+policy)
 
 function GetPolicy(cnt) {
-    if (cnt && cnt.indexOf("#policy=YouTube") !=-1) {
-        return decodeURIComponent(cnt.split("#policy=YouTube")[1].trim())
+    if (cnt && cnt.indexOf("#policy=") !=-1) {
+        return decodeURIComponent(cnt.split("#policy=")[1].trim())
     }else {
         return ""
     }
