@@ -11,4 +11,4 @@
 
 [Script]
 # WARP节点查询
-generic script-path = Netisp.js, tag = 入口落地查询, img-url = network.system,img-url =network
+generic script-path = Netisp.js, tag = 入口落地查询, img-url = network.system,img-url = network
