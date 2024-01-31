@@ -1,8 +1,8 @@
-#!name = 喜马拉雅试用1号线
-#!desc = 喜马拉雅 更新时间 2023-06-08 22:38
+#!name = 喜马拉雅
+#!desc = 喜马拉雅试用1号线 
 #!homepage =
 #!icon = https://raw.githubusercontent.com/john-wx/script/main/icon/xmly.png
-
+#!date = 2024-01-31 23:02
 
 [Rewrite]
 
@@ -19,8 +19,8 @@
 
 [Script]
 
-http-response ^https?:\/\/.+((ximalaya)|(xmcdn)).+(mobile-user\/v2|mobile-web|queryCategoryPageData|discovery-feed\/v4|vip\/v1\/recommand|product\/detail\/v1|mobile\/v1\/album|playpage).*$ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/xmly.js, requires-body=true, timeout=600, tag=xmly
-http-request ^https?:\/\/.+((ximalaya)|(xmcdn)).+\/[a-z]{6}\-[a-z]{8}\/track\/(v[0-9])\/[a-zA-Z]+\/ts.*$ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/xmtk.js, requires-body=false, timeout=600, tag=xmtk
+http-response ^https?:\/\/.+((ximalaya)|(xmcdn)).+(mobile-user\/v2|mobile-web|queryCategoryPageData|discovery-feed\/v4|vip\/v1\/recommand|product\/detail\/v1|mobile\/v1\/album|playpage).*$ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/xmly.js, requires-body=true, timeout=600, tag=xmly01
+http-request ^https?:\/\/.+((ximalaya)|(xmcdn)).+\/[a-z]{6}\-[a-z]{8}\/track\/(v[0-9])\/[a-zA-Z]+\/ts.*$ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/xmtk.js, requires-body=false, timeout=600, tag=xmtk03
 
 
 
