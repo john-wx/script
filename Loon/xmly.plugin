@@ -19,8 +19,8 @@
 
 [Script]
 
-http-response ^https?:\/\/.+((ximalaya)|(xmcdn)).+(mobile-user\/v2|mobile-web|queryCategoryPageData|discovery-feed\/v4|vip\/v1\/recommand|product\/detail\/v1|mobile\/v1\/album|playpage).*$ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/xmly.js, requires-body=true, timeout=10, tag=xmly
-http-request ^https?:\/\/.+((ximalaya)|(xmcdn)).+\/[a-z]{6}\-[a-z]{8}\/track\/(v[0-9])\/[a-zA-Z]+\/ts.*$ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/xmtk.js, requires-body=false, timeout=10, tag=xmtk
+http-response ^https?:\/\/.+((ximalaya)|(xmcdn)).+(mobile-user\/v2|mobile-web|queryCategoryPageData|discovery-feed\/v4|vip\/v1\/recommand|product\/detail\/v1|mobile\/v1\/album|playpage).*$ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/xmly.js, requires-body=true, timeout=600, tag=xmly
+http-request ^https?:\/\/.+((ximalaya)|(xmcdn)).+\/[a-z]{6}\-[a-z]{8}\/track\/(v[0-9])\/[a-zA-Z]+\/ts.*$ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/xmtk.js, requires-body=false, timeout=600, tag=xmtk
 
 
 
