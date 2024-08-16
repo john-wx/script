@@ -4,7 +4,7 @@
 #!author=Johnny
 #!homepage=
 #!icon=https://raw.githubusercontent.com/john-wx/script/main/icon/javascript.png
-#!date = 2024-06-27 22:10:00
+#!date = 2024-08-17 22:10:00
 [MITM]
 hostname = m.douban.com,appwk.baidu.com,wrapper.cyapi.cn,biz.cyapi.cn,news.ssp.qq.com, r.inews.qq.com,api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com,pan.baidu.com, api.m.jd.com, api.revenuecat.com, vsco.co, newdrugs.dxy.cn,ap*.intsig.net, -license.pdfexpert.com,apiios_dq.xiangha.com, appweb_dq.xiangha.com, 101.200.225.157
 
